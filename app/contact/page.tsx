@@ -79,7 +79,7 @@ export default function ContactPage() {
             </motion.div>
             <motion.h1 variants={fadeUp} className="text-4xl md:text-6xl font-extrabold text-slate-900 font-display leading-tight text-balance">
               Get in touch with{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">PropDesk</span>
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-600 to-teal-500">PropDesk</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto">
               Whether you want to book a personalized demo, need technical support, or just have a quick question—reach out to us directly.
@@ -138,7 +138,7 @@ export default function ContactPage() {
           >
             {/* Office Details */}
             <div className="p-6 bg-white border border-slate-200 rounded-2xl flex items-start gap-4 shadow-sm hover:border-slate-300 transition-colors">
-              <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center shrink-0">
                 <MapPin className="w-5 h-5 text-slate-700" />
               </div>
               <div>
@@ -152,7 +152,7 @@ export default function ContactPage() {
 
             {/* Trust Badge */}
             <div className="p-6 bg-emerald-50/50 border border-emerald-100 rounded-2xl flex items-start gap-4 shadow-sm">
-              <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center shrink-0">
                 <Shield className="w-5 h-5 text-emerald-600" />
               </div>
               <div>
@@ -264,7 +264,7 @@ export default function ContactPage() {
                         <span className={`font-bold pr-4 ${isOpen ? 'text-emerald-700' : 'text-slate-900'}`}>
                           {faq.q}
                         </span>
-                        <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-300 ${isOpen ? 'bg-emerald-100 rotate-180' : 'bg-slate-50'}`}>
+                        <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-300 ${isOpen ? 'bg-emerald-100 rotate-180' : 'bg-slate-50'}`}>
                           <ChevronDown className={`w-4 h-4 ${isOpen ? 'text-emerald-600' : 'text-slate-400'}`} />
                         </div>
                       </button>

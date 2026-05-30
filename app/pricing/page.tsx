@@ -108,7 +108,7 @@ export default function PricingPage() {
     <div className="overflow-hidden pt-24">
 
       {/* ═══ HERO ══════════════════════════════════════════════════════════════ */}
-      <section className="py-20 md:py-28 bg-gradient-to-b from-slate-50 to-white">
+      <section className="py-20 md:py-28 bg-linear-to-b from-slate-50 to-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div variants={stagger} initial="hidden" animate="show" className="space-y-6">
             <motion.div variants={fadeUp} className="flex justify-center">
@@ -116,7 +116,7 @@ export default function PricingPage() {
             </motion.div>
             <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 font-display leading-tight text-balance">
               Simple Pricing for{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-emerald-400">Real Estate Agents</span>
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-600 to-emerald-400">Real Estate Agents</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="text-xl text-slate-500 leading-relaxed">
               Every plan includes a full 14-day free trial. No credit card required. Cancel anytime.
@@ -213,13 +213,13 @@ export default function PricingPage() {
                 <ul className="space-y-2.5 mb-8 flex-1">
                   {plan.features.map((f, fi) => (
                     <li key={fi} className="flex items-center gap-2.5 text-sm">
-                      <Check className={`w-4 h-4 flex-shrink-0 ${plan.popular ? "text-emerald-400" : "text-emerald-600"}`} />
+                      <Check className={`w-4 h-4 shrink-0 ${plan.popular ? "text-emerald-400" : "text-emerald-600"}`} />
                       <span className={plan.popular ? "text-slate-300" : "text-slate-700"}>{f}</span>
                     </li>
                   ))}
                   {plan.notIncluded.map((f, fi) => (
                     <li key={`no-${fi}`} className="flex items-center gap-2.5 text-sm opacity-40">
-                      <span className="w-4 h-4 flex-shrink-0 text-slate-400">—</span>
+                      <span className="w-4 h-4 shrink-0 text-slate-400">—</span>
                       <span className={plan.popular ? "text-slate-500" : "text-slate-400"}>{f}</span>
                     </li>
                   ))}
@@ -296,7 +296,7 @@ export default function PricingPage() {
                   className="w-full flex items-center justify-between p-6 text-left gap-4"
                 >
                   <span className="font-semibold text-slate-900">{faq.q}</span>
-                  <span className={`text-slate-400 transition-transform duration-200 flex-shrink-0 ${activeFaq === i ? "rotate-180" : ""}`}>▾</span>
+                  <span className={`text-slate-400 transition-transform duration-200 shrink-0 ${activeFaq === i ? "rotate-180" : ""}`}>▾</span>
                 </button>
                 {activeFaq === i && (
                   <div className="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 text-sm">

@@ -37,8 +37,8 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-11">
 
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
-              <div className="relative w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600  shadow-lg shadow-emerald-200 group-hover:shadow-emerald-300 transition-all duration-300">
+            <Link href="/" className="flex items-center gap-2.5 group shrink-0">
+              <div className="relative w-8 h-8 rounded-xl bg-linear-to-br from-emerald-500 to-emerald-600  shadow-lg shadow-emerald-200 group-hover:shadow-emerald-300 transition-all duration-300">
                 <div className="w-full h-full rounded-[10px] bg-white flex items-center justify-center">
                   <Image
                     src="/prop.png"

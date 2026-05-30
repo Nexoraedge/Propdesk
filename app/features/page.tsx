@@ -119,7 +119,7 @@ export default function FeaturesPage() {
     <div className="overflow-hidden pt-24">
 
       {/* ═══ HERO ══════════════════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28 bg-gradient-to-b from-slate-50 to-white">
+      <section className="relative py-20 md:py-28 bg-linear-to-b from-slate-50 to-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div variants={stagger} initial="hidden" animate="show" className="space-y-6">
             <motion.div variants={fadeUp} className="flex justify-center">
@@ -168,11 +168,10 @@ export default function FeaturesPage() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 ${
-                    isActive
-                      ? "bg-slate-900 text-white shadow-md"
-                      : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900"
-                  }`}
+                  className={`flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 ${isActive
+                    ? "bg-slate-900 text-white shadow-md"
+                    : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900"
+                    }`}
                 >
                   <Icon className="w-4 h-4" />
                   {tab.label}
@@ -199,7 +198,7 @@ export default function FeaturesPage() {
                 <ul className="space-y-3">
                   {currentTab.points.map((pt, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                       <span className="text-slate-600">{pt}</span>
                     </li>
                   ))}

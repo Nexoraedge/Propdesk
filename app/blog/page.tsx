@@ -26,8 +26,8 @@ export default function BlogPage() {
   const categories = ["All", "Product Guide", "Buyer's Guide", "Industry Insights"];
 
   const featured = blogPosts[0];
-  const filteredPosts = activeCategory === "All" 
-    ? blogPosts 
+  const filteredPosts = activeCategory === "All"
+    ? blogPosts
     : blogPosts.filter(post => post.category === activeCategory);
 
   return (
@@ -35,10 +35,10 @@ export default function BlogPage() {
 
       {/* ═══ HERO ══════════════════════════════════════════════════════════════ */}
       <section className="py-20 md:py-24 relative bg-white border-b border-slate-200/50">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-50/50 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-b from-slate-50/50 to-transparent pointer-events-none" />
         {/* Glow halo */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-400/5 rounded-full blur-[100px] pointer-events-none" />
-        
+
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div variants={stagger} initial="hidden" animate="show" className="space-y-6">
             <motion.div variants={fadeUp} className="flex justify-center">
@@ -47,14 +47,14 @@ export default function BlogPage() {
                 PropDesk Knowledge Hub
               </span>
             </motion.div>
-            
+
             <motion.h1 variants={fadeUp} className="text-4xl md:text-6xl font-black text-slate-900 font-display leading-[1.1] tracking-tight text-balance">
               Real Estate Insights for <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-600 to-teal-500">
                 New India's Builders
               </span>
             </motion.h1>
-            
+
             <motion.p variants={fadeUp} className="text-lg md:text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto">
               Expert strategies, property management checklists, and software guides built exclusively to scale startup agencies and modern brokers.
             </motion.p>
@@ -70,11 +70,10 @@ export default function BlogPage() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 whitespace-nowrap cursor-pointer ${
-                  activeCategory === cat
-                    ? "bg-slate-900 text-white shadow-md shadow-slate-900/10"
-                    : "text-slate-500 hover:text-slate-950 hover:bg-slate-100"
-                }`}
+                className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 whitespace-nowrap cursor-pointer ${activeCategory === cat
+                  ? "bg-slate-900 text-white shadow-md shadow-slate-900/10"
+                  : "text-slate-500 hover:text-slate-950 hover:bg-slate-100"
+                  }`}
               >
                 {cat}
               </button>
@@ -96,14 +95,14 @@ export default function BlogPage() {
               className="space-y-6"
             >
               <h2 className="text-xs font-bold text-slate-400 uppercase tracking-widest pl-2">Featured Publication</h2>
-              
+
               <Link
                 href={`/blog/${featured.slug}`}
                 className="group block bg-slate-900 rounded-[2.5rem] overflow-hidden hover:shadow-2xl hover:shadow-slate-900/35 border border-slate-800 transition-all duration-300 relative"
               >
                 {/* Visual Accent */}
                 <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-emerald-500/5 rounded-full blur-[80px] pointer-events-none" />
-                
+
                 <div className="p-8 md:p-14 lg:p-16 relative z-10 flex flex-col justify-between min-h-[400px]">
                   <div>
                     <div className="flex flex-wrap items-center gap-3 mb-6">
@@ -136,7 +135,7 @@ export default function BlogPage() {
                       </div>
                     </div>
                     <span className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 rounded-xl text-emerald-400 font-bold text-sm group-hover:bg-white group-hover:text-slate-900 transition-all duration-300">
-                      Read Article 
+                      Read Article
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </span>
                   </div>
@@ -170,7 +169,7 @@ export default function BlogPage() {
                   >
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="group flex flex-col h-full bg-white border border-slate-200 rounded-[2rem] p-8 shadow-xl shadow-slate-200/40 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-slate-200/50 hover:border-emerald-200 transition-all duration-300 relative overflow-hidden"
+                      className="group flex flex-col h-full bg-white border border-slate-200 rounded-4xl p-8 shadow-xl shadow-slate-200/40 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-slate-200/50 hover:border-emerald-200 transition-all duration-300 relative overflow-hidden"
                     >
                       <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-50 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
 
@@ -233,7 +232,7 @@ export default function BlogPage() {
       {/* ═══ HIGH-IMPACT PREMIUM BOTTOM CTA ═══════════════════════════════════ */}
       <section className="py-24 bg-slate-50 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <motion.div
             variants={stagger}
             initial="hidden"
@@ -244,9 +243,9 @@ export default function BlogPage() {
             {/* Minimalist Geometric Accents */}
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-teal-500/10 rounded-full blur-[80px] -translate-x-1/3 translate-y-1/3 pointer-events-none" />
-            
+
             <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between p-10 md:p-16 lg:p-24 gap-12 lg:gap-20">
-              
+
               {/* Left Side: Typography */}
               <div className="flex-1 text-center lg:text-left space-y-8">
                 <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 border border-slate-700">
@@ -257,7 +256,7 @@ export default function BlogPage() {
                 </motion.div>
 
                 <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-black text-white font-display leading-[1.1] tracking-tight">
-                  Stop managing leads in Excel. <br className="hidden md:block"/>
+                  Stop managing leads in Excel. <br className="hidden md:block" />
                   <span className="text-emerald-400">Start closing deals.</span>
                 </motion.h2>
 
@@ -267,8 +266,8 @@ export default function BlogPage() {
               </div>
 
               {/* Right Side: Action Box */}
-              <motion.div 
-                variants={fadeUp} 
+              <motion.div
+                variants={fadeUp}
                 className="w-full lg:w-[420px] shrink-0 bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm relative"
               >
                 {/* 50% Off Promo Badge */}
@@ -282,7 +281,7 @@ export default function BlogPage() {
                     Start Free Trial Now
                     <ArrowRight className="w-5 h-5 text-emerald-600 group-hover:translate-x-1 transition-transform" />
                   </Link>
-                  
+
                   <Link href="/features" className="w-full flex items-center justify-center gap-3 px-8 py-4.5 bg-transparent hover:bg-white/5 border border-slate-600 hover:border-slate-400 text-white font-bold rounded-2xl transition-all">
                     Explore CRM Features
                   </Link>
@@ -303,7 +302,7 @@ export default function BlogPage() {
                   </ul>
                 </div>
               </motion.div>
-              
+
             </div>
           </motion.div>
         </div>

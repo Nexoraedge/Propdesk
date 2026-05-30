@@ -123,8 +123,9 @@ export default function TermsPage() {
             </p>
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-3 max-w-md">
               <p className="text-sm font-bold text-slate-950">PropDesk Technologies</p>
-              <p className="text-sm">📧 Legal Queries: <a href="mailto:hardikjain2030@gmail.com" className="text-emerald-650 hover:underline">hardikjain2030@gmail.com</a></p>
-              <p className="text-sm">📞 Phone Support: <a href="tel:+917208850778" className="text-emerald-650 hover:underline">+91 72088 50778</a></p>
+              <p className="text-sm">📧 Legal Queries: <a href="mailto:hardikjain2030@gmail.com" className="text-emerald-650 hover:underline font-medium">hardikjain2030@gmail.com</a></p>
+              <p className="text-sm">💬 WhatsApp Support (Fastest): <a href="https://wa.me/917208850778?text=Hi%20PropDesk%2520Support" target="_blank" rel="noopener noreferrer" className="text-emerald-650 hover:underline font-bold">+91 72088 50778</a></p>
+              <p className="text-sm">📞 Phone Support: <a href="tel:+918271310911" className="text-emerald-650 hover:underline font-medium">+91 82713 10911</a></p>
             </div>
           </section>
 

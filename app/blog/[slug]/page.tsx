@@ -39,7 +39,7 @@ function renderMarkdown(content: string): React.ReactNode[] {
     } else if (line.startsWith("✓ ")) {
       elements.push(
         <div key={i} className="flex items-start gap-2.5 ml-4">
-          <span className="text-emerald-600 font-bold mt-0.5 flex-shrink-0">✓</span>
+          <span className="text-emerald-600 font-bold mt-0.5 shrink-0">✓</span>
           <span className="text-slate-700">{line.slice(2)}</span>
         </div>
       );
@@ -86,7 +86,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
     <div className="overflow-hidden pt-24 bg-white">
 
       {/* ═══ ARTICLE HEADER ════════════════════════════════════════════════════ */}
-      <section className="py-12 md:py-16 bg-gradient-to-b from-slate-50 to-white border-b border-slate-100">
+      <section className="py-12 md:py-16 bg-linear-to-b from-slate-50 to-white border-b border-slate-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.08 } } }} initial="hidden" animate="show" className="space-y-5">
 
@@ -126,7 +126,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
             {/* Author + share */}
             <motion.div variants={fadeUp} className="flex items-center justify-between pt-2 border-t border-slate-100">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                <div className="w-10 h-10 rounded-full bg-linear-to-br from-emerald-500 to-emerald-600 flex items-center justify-center text-white font-bold text-sm shrink-0">
                   {post.author.initials}
                 </div>
                 <div>
@@ -169,7 +169,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
           </div>
 
           {/* CTA box */}
-          <div className="mt-14 bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-10 text-center">
+          <div className="mt-14 bg-linear-to-br from-slate-900 to-slate-800 rounded-3xl p-10 text-center">
             <p className="text-emerald-400 text-sm font-bold uppercase tracking-wider mb-3">Ready to get started?</p>
             <h3 className="text-2xl md:text-3xl font-extrabold text-white font-display mb-4">
               Try PropDesk free for 14 days

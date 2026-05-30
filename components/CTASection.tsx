@@ -11,8 +11,8 @@ export default function CTASection() {
       <div className="absolute top-0 left-0 w-full h-px bg-slate-100" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="bg-gradient-to-br from-emerald-50/80 to-teal-50/30 rounded-3xl p-12 md:p-16 border border-emerald-100/60 text-center relative overflow-hidden shadow-sm shadow-emerald-100/20">
-          
+        <div className="bg-linear-to-br from-emerald-50/80 to-teal-50/30 rounded-3xl p-12 md:p-16 border border-emerald-100/60 text-center relative overflow-hidden shadow-sm shadow-emerald-100/20">
+
           {/* Subtle grid pattern background overlay */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.01)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.01)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
 
@@ -25,7 +25,7 @@ export default function CTASection() {
             Ready to Say Goodbye to <br className="hidden sm:inline" />
             <span className="text-emerald-700">Messy Excel Sheets & Lost Diaries?</span>
           </h2>
-          
+
           <p className="text-base md:text-lg text-slate-650 max-w-2xl mx-auto mb-10 leading-relaxed font-sans font-medium text-slate-600">
             Join thousands of real estate professionals across India who use PropDesk to auto-match properties, automate team tasks, and close deals 3x faster.
           </p>
@@ -39,7 +39,7 @@ export default function CTASection() {
               <Zap className="w-4 h-4 fill-white" />
               Book Free Live Demo
             </Link>
-            
+
             <a
               href="https://wa.me/917208850778?text=Hi%20PropDesk%20Team%2C%20I%27d%20like%20to%20learn%2520more%20about%20your%20software."
               target="_blank"

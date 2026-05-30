@@ -109,7 +109,7 @@ function FeatureBlock({
             <div className="browser-dot browser-dot-yellow" />
             <div className="browser-dot browser-dot-green" />
             <div className="flex-1 mx-3 bg-white rounded-md h-6 flex items-center px-3">
-              <span className="text-[11px] text-slate-400 truncate">app.propdesk.in</span>
+              <span className="text-[11px] text-slate-400 truncate">thepropdesk.in</span>
             </div>
           </div>
           <Image
@@ -266,37 +266,13 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Headline Wrapper */}
-            <div className="relative w-full max-w-4xl mx-auto">
-              {/* Floating micro-interactions */}
-              <div className="hidden xl:flex absolute -left-12 top-4 items-center gap-3 bg-white/90 backdrop-blur-sm px-5 py-3 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 animate-bounce z-20" style={{ animationDuration: '3s' }}>
-                <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
-                  <Check className="w-5 h-5 text-emerald-600" />
-                </div>
-                <div className="text-left">
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider whitespace-nowrap">Match Found</p>
-                  <p className="text-sm font-bold text-slate-700 whitespace-nowrap">₹2.4 Cr Villa</p>
-                </div>
-              </div>
-              
-              <div className="hidden xl:flex absolute -right-12 bottom-12 items-center gap-3 bg-white/90 backdrop-blur-sm px-5 py-3 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 animate-bounce z-20" style={{ animationDuration: '4s', animationDelay: '1s' }}>
-                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                  <MessageSquare className="w-5 h-5 text-blue-600" />
-                </div>
-                <div className="text-left">
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider whitespace-nowrap">WhatsApp PDF</p>
-                  <p className="text-sm font-bold text-slate-700 whitespace-nowrap">Sent to Client</p>
-                </div>
-              </div>
-
-              {/* Headline */}
-              <motion.h1 variants={fadeUp} className="text-6xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 font-display leading-[1.05] tracking-tight mb-8 text-balance relative z-10">
-                <span className="block text-slate-800">Ditch the Diary.</span>
-                <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-500 to-emerald-400 pb-2">
-                  Close Deals Faster.
-                </span>
-              </motion.h1>
-            </div>
+            {/* Headline */}
+            <motion.h1 variants={fadeUp} className="text-6xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 font-display leading-[1.05] tracking-tight mb-8 text-balance relative">
+              <span className="block text-slate-800">Ditch the Diary.</span>
+              <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-500 to-emerald-400 pb-2">
+                Close Deals Faster.
+              </span>
+            </motion.h1>
 
             {/* Subheadline */}
             <motion.p variants={fadeUp} className="text-xl md:text-2xl text-slate-500 font-medium leading-relaxed max-w-3xl mx-auto mb-10">
@@ -305,10 +281,8 @@ export default function Home() {
 
             {/* CTAs */}
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-              <Link href="/contact" className="group relative inline-flex items-center justify-center gap-2 bg-emerald-600 text-white font-bold text-lg px-8 py-4 rounded-2xl overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-emerald-600/30">
-                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <span className="relative">Start 14-Day Free Trial</span>
-                <ArrowRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <Link href="/contact" className="btn-12">
+                <span>Start 14-Day Free Trial</span>
               </Link>
               <Link href="https://youtu.be/FEU5vRmuIKw" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 bg-white text-slate-700 font-bold text-lg px-8 py-4 rounded-2xl border-2 border-slate-100 hover:border-slate-200 hover:bg-slate-50 transition-all">
                 <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -332,6 +306,11 @@ export default function Home() {
               <div className="flex items-center gap-1.5">
                 <Shield className="w-4 h-4 text-emerald-500" />
                 <span>No credit card required</span>
+              </div>
+              <span className="hidden sm:inline text-slate-300">|</span>
+              <div className="flex items-center gap-1.5">
+                <span className="text-base">🇮🇳</span>
+                <span>Proudly Made in India</span>
               </div>
             </motion.div>
           </motion.div>
@@ -394,7 +373,7 @@ export default function Home() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid grid-cols-4 gap-4"
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4"
           >
             {[
               { value: "20+", label: "Top Agencies Joined" },
@@ -403,7 +382,7 @@ export default function Home() {
               { value: "14 Days", label: "Free Trial" },
             ].map((stat, i) => (
               <motion.div key={i} variants={fadeUp} className="text-center px-2">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white font-display whitespace-nowrap mb-1">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white font-display mb-1">
                   {stat.value}
                 </div>
                 <div className="text-xs sm:text-sm text-slate-400 font-medium leading-snug">{stat.label}</div>
@@ -418,28 +397,26 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-28">
 
           <FeatureBlock
-            badge="Smart Matching Engine"
-            title="Auto-match buyers to properties in milliseconds"
-            description="Stop manually scrolling through hundreds of listings. PropDesk's AI-powered matching engine instantly analyzes buyer requirements against your entire property inventory — budget, area, type, location — and surfaces the best matches with a confidence score."
+            badge="Smart Match Engine"
+            title="Find matches in milliseconds"
+            description="Stop scrolling. Our AI instantly matches buyer requirements against your entire property inventory and scores the best fits."
             bullets={[
-              "Side-by-side match intelligence with detailed scoring",
-              "Handles all Indian area units: Gaj, Bigha, Kanal, Marla, Sq. Yards",
-              "Share matched properties directly to buyer's WhatsApp with one click",
-              "Budget tolerance filters (matches within ±10% range)",
+              "Instant side-by-side match intelligence",
+              "Supports Gaj, Bigha, Kanal, Marla",
+              "1-click WhatsApp property sharing",
             ]}
             imageSrc="/assets/smar_match.png"
             imageAlt="PropDesk Smart Match Engine — AI Property Matching for Real Estate CRM"
           />
 
           <FeatureBlock
-            badge="Property Inventory"
-            title="Your entire property portfolio, organized and searchable"
-            description="Maintain a professional, searchable inventory of all your listings — plots, villas, apartments, commercial units. Filter by status, type, area, price range. Export reports with one click and share with clients instantly."
+            badge="Inventory Management"
+            title="Your entire portfolio, in your pocket"
+            description="A lightning-fast, searchable database for all your listings. Filter, manage, and share properties instantly from your phone."
             bullets={[
-              "Unlimited property listings with photos, documents & notes",
-              "Advanced filters: property type, BHK, locality, status, price",
-              "Instant PDF portfolio generation for client sharing",
-              "Track each property's journey from available to sold",
+              "Unlimited listings with photos & notes",
+              "Instant PDF portfolio generation",
+              "Track properties from available to sold",
             ]}
             imageSrc="/assets/properties.png"
             imageAlt="PropDesk Property Inventory — Real Estate Property Management Software India"
@@ -447,14 +424,13 @@ export default function Home() {
           />
 
           <FeatureBlock
-            badge="Lead & Client CRM"
-            title="Never lose a lead or forget a follow-up again"
-            description="A complete CRM pipeline built for real estate transactions. Track every buyer and seller from first contact to deal closure. Set automated reminders, log WhatsApp conversations, and know exactly where each deal stands."
+            badge="Client CRM"
+            title="Never miss a follow-up again"
+            description="A complete real estate pipeline. Track every client from first contact to token payment, and let automated reminders do the heavy lifting."
             bullets={[
-              "Full buyer and seller database with budget, requirements & timeline",
-              "Automated follow-up reminders with push notifications",
-              "Lead stage pipeline: New → Site Visit → Token → Closed",
-              "Assign leads to sub-agents with activity tracking",
+              "Complete buyer and seller database",
+              "Automated follow-up push notifications",
+              "Track pipeline stages easily",
             ]}
             imageSrc="/assets/leads.png"
             imageAlt="PropDesk Lead CRM — Real Estate Lead Management Software for Indian Agents"
@@ -524,33 +500,36 @@ export default function Home() {
             </motion.h2>
           </motion.div>
 
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
-          >
-            {testimonials.map((t, i) => (
-              <motion.div key={i} variants={fadeUp} className="card p-7 flex flex-col">
-                <div className="flex items-center gap-1 mb-4">
-                  {[1, 2, 3, 4, 5].map(s => <Star key={s} className="w-4 h-4 fill-amber-400 text-amber-400" />)}
-                </div>
-                <blockquote className="text-slate-600 leading-relaxed mb-6 flex-1">
-                  "{t.text}"
-                </blockquote>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
-                    {t.avatar}
+          <div className="overflow-hidden w-full max-w-7xl mx-auto relative mt-12 py-4">
+            <div className="absolute left-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
+            
+            <motion.div
+              className="flex gap-6 w-max"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ repeat: Infinity, ease: "linear", duration: 40 }}
+            >
+              {[...testimonials, ...testimonials, ...testimonials, ...testimonials].map((t, i) => (
+                <div key={i} className="card p-7 flex flex-col w-[320px] md:w-[400px] flex-shrink-0">
+                  <div className="flex items-center gap-1 mb-4">
+                    {[1, 2, 3, 4, 5].map(s => <Star key={s} className="w-4 h-4 fill-amber-400 text-amber-400" />)}
                   </div>
-                  <div>
-                    <div className="font-bold text-slate-900 text-sm">{t.name}</div>
-                    <div className="text-slate-400 text-xs">{t.role}</div>
+                  <blockquote className="text-slate-600 leading-relaxed mb-6 flex-1">
+                    "{t.text}"
+                  </blockquote>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
+                      {t.avatar}
+                    </div>
+                    <div>
+                      <div className="font-bold text-slate-900 text-sm">{t.name}</div>
+                      <div className="text-slate-400 text-xs">{t.role}</div>
+                    </div>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
 

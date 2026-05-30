@@ -77,21 +77,26 @@ export default function HeroSection() {
                         animate="show"
                         className="max-w-2xl text-center lg:text-left mx-auto lg:mx-0"
                     >
-                        {/* Promo Badge */}
-                        <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-emerald-200 shadow-sm mb-8 group cursor-pointer hover:border-emerald-300 transition-colors">
-                            <span className="flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100">
-                                <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-                            </span>
-                            <span className="text-xs font-bold text-slate-700 uppercase tracking-wide">
-                                Special Offer: Claim your <span className="text-emerald-600">50% discount</span> link
-                            </span>
-                            <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-1 group-hover:text-emerald-600 transition-all" />
+                        {/* Promo Badges */}
+                        <motion.div variants={fadeUp} className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-8">
+                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 border border-slate-800 text-white shadow-md shadow-slate-900/10 text-xs font-extrabold uppercase tracking-widest">
+                                <span className="text-sm">🇮🇳</span> Made in India
+                            </div>
+                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-emerald-200 shadow-sm group cursor-pointer hover:border-emerald-300 transition-colors">
+                                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100">
+                                    <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+                                </span>
+                                <span className="text-xs font-bold text-slate-700 uppercase tracking-wide">
+                                    Special Offer: Claim your <span className="text-emerald-600">50% discount</span>
+                                </span>
+                                <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-1 group-hover:text-emerald-600 transition-all" />
+                            </div>
                         </motion.div>
 
                         {/* Headline */}
                         <motion.h1 variants={fadeUp} className="text-5xl md:text-6xl lg:text-[4.2rem] font-black text-slate-900 font-display leading-[1.05] tracking-tight mb-6 text-balance">
                             The Smartest <br className="hidden lg:block" />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">
+                            <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-600 to-teal-500">
                                 Real Estate CRM
                             </span>
                             <br className="hidden lg:block" /> Built for India.
@@ -136,10 +141,10 @@ export default function HeroSection() {
                         className="relative lg:ml-10 mt-12 lg:mt-0"
                     >
                         {/* Glow halo behind video */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-emerald-400/20 to-teal-300/20 rounded-[2.5rem] blur-2xl transform scale-105" />
+                        <div className="absolute inset-0 bg-linear-to-tr from-emerald-400/20 to-teal-300/20 rounded-[2.5rem] blur-2xl transform scale-105" />
 
                         {/* Main Video Browser Frame */}
-                        <div className="relative bg-white rounded-[2rem] border border-slate-200/50 shadow-2xl shadow-slate-300/50 overflow-hidden">
+                        <div className="relative bg-white rounded-4xl border border-slate-200/50 shadow-2xl shadow-slate-300/50 overflow-hidden">
 
                             {/* Browser Header */}
                             <div className="bg-slate-50 border-b border-slate-100 px-4 py-3 flex items-center gap-4">

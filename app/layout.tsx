@@ -17,7 +17,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://propdesk.in"),
+  metadataBase: new URL("https://thepropdesk.in"),
   title: {
     default: "PropDesk — Property Management Software & Real Estate CRM for Indian Brokers",
     template: "%s | PropDesk",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://propdesk.in",
+    url: "https://thepropdesk.in",
     title: "PropDesk — Property Management Software & Real Estate CRM for India",
     description:
       "Auto-match buyers to properties, manage listings, automate follow-ups. India's smartest real estate CRM for brokers and agencies. Start your 14-day free trial.",
@@ -94,7 +94,7 @@ const jsonLd = {
       applicationSubCategory: "Real Estate CRM Software",
       description:
         "PropDesk is India's leading property management software and real estate CRM system for brokers, agents, and agencies. Features include smart property matching, lead pipeline management, WhatsApp PDF sharing, Indian area unit conversion, and sub-agent management.",
-      url: "https://propdesk.in",
+      url: "https://thepropdesk.in",
       offers: {
         "@type": "AggregateOffer",
         lowPrice: "799",
@@ -112,8 +112,8 @@ const jsonLd = {
     {
       "@type": "Organization",
       name: "PropDesk Technologies Pvt. Ltd.",
-      url: "https://propdesk.in",
-      logo: "https://propdesk.in/prop.png",
+      url: "https://thepropdesk.in",
+      logo: "https://thepropdesk.in/prop.png",
       contactPoint: {
         "@type": "ContactPoint",
         telephone: "+91-72088-50778",
@@ -148,6 +148,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${outfit.variable} ${plusJakartaSans.variable} scroll-smooth antialiased`}
+      data-scroll-behavior="smooth"
     >
       <head>
         <script
@@ -157,7 +158,7 @@ export default function RootLayout({
       </head>
       <body className="font-body bg-white text-slate-900 min-h-screen flex flex-col selection:bg-emerald-200 selection:text-slate-900">
         <Navbar />
-        <main className="flex-grow flex flex-col">
+        <main className="grow flex flex-col">
           {children}
         </main>
         <Footer />
