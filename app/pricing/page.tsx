@@ -27,10 +27,13 @@ const plans = [
     features: [
       "1 Admin Account",
       "Up to 500 property listings",
-      "Up to 500 active clients",
       "2-Sec Smart Matching",
       "WhatsApp & PDF sharing",
+      "Broker Management",
       "Excel Data Export",
+      "Daily reminders",
+      "Add upto 3 property imgs"
+
     ],
     notIncluded: ["Sub-agent accounts", "Team Activity Log", "Custom Branding"],
     cta: "Start Free Trial",
@@ -47,10 +50,10 @@ const plans = [
       "3 Agent Accounts included",
       "+ ₹799/mo per additional agent",
       "Up to 1500 property listings",
-      "Up to 1500 active clients",
-      "Cloud Photo Storage",
+      "Booking System",
       "Automated Follow-up Reminders",
       "Real-Time Team Activity Log",
+
     ],
     notIncluded: ["Unlimited listings", "Custom Agency Logo"],
     cta: "Start Free Trial",
@@ -66,7 +69,6 @@ const plans = [
     features: [
       "Unlimited property listings",
       "Unlimited agent accounts",
-      "Unlimited active clients",
       "Custom Agency Logo Branding",
       "Dedicated account manager",
       "Priority 24/7 Support Desk",
