@@ -192,21 +192,39 @@ export default function Home() {
       name: "Starter",
       price: 999,
       badge: "Solo Brokers",
-      features: ["50 property listings", "100 clients", "2-Sec Smart Match", "WhatsApp sharing", "Excel Export"],
+      features: [
+        "1 Admin Account",
+        "Up to 500 property listings",
+        "2-Sec Smart Matching",
+        "WhatsApp & PDF sharing",
+        "Daily reminders"
+      ],
       popular: false,
     },
     {
       name: "Professional",
       price: 1999,
       badge: "Growing Agencies",
-      features: ["3 Agent Accounts", "200 property listings", "Cloud Storage", "Auto Reminders", "Activity Log"],
+      features: [
+        "3 Agent Accounts included",
+        "+ ₹799/mo per additional agent",
+        "Up to 1500 property listings",
+        "Automated Follow-up Reminders",
+        "Real-Time Team Activity Log"
+      ],
       popular: true,
     },
     {
       name: "Agency",
       price: "Custom",
-      badge: "Enterprise",
-      features: ["Unlimited listings", "Unlimited agents", "Custom branding", "Dedicated manager", "Priority support"],
+      badge: "Enterprise Firms",
+      features: [
+        "Unlimited property listings",
+        "Unlimited agent accounts",
+        "Custom Agency Logo Branding",
+        "Dedicated account manager",
+        "Priority 24/7 Support Desk"
+      ],
       popular: false,
     },
   ];
@@ -335,7 +353,7 @@ export default function Home() {
                 <div className="flex-1 flex justify-center">
                   <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-md px-3 py-1 text-xs text-slate-500 font-medium shadow-sm">
                     <Lock className="w-3 h-3 text-emerald-600" />
-                    app.thepropdesk.in
+                    thepropdesk.in
                   </div>
                 </div>
                 <div className="w-12" /> {/* Spacer */}
