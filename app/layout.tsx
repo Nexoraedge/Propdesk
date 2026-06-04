@@ -45,6 +45,11 @@ export const metadata: Metadata = {
   authors: [{ name: "PropDesk Technologies" }],
   creator: "PropDesk",
   publisher: "PropDesk Technologies Pvt. Ltd.",
+  icons: {
+    icon: "/prop.png",
+    shortcut: "/prop.png",
+    apple: "/prop.png",
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -55,10 +60,10 @@ export const metadata: Metadata = {
     siteName: "PropDesk",
     images: [
       {
-        url: "/assets/dashbaord.png",
+        url: "/banner.png",
         width: 1200,
         height: 630,
-        alt: "PropDesk — Real Estate CRM Dashboard",
+        alt: "PropDesk — Real Estate CRM & Property Management Software Banner",
       },
     ],
   },
@@ -67,7 +72,7 @@ export const metadata: Metadata = {
     title: "PropDesk — Property Management Software & Real Estate CRM for India",
     description:
       "India's smartest real estate CRM and property management software for brokers and agencies. 14-day free trial.",
-    images: ["/assets/dashbaord.png"],
+    images: ["/banner.png"],
   },
   alternates: { canonical: "/" },
   robots: {
@@ -97,7 +102,7 @@ const jsonLd = {
       url: "https://thepropdesk.in",
       offers: {
         "@type": "AggregateOffer",
-        lowPrice: "799",
+        lowPrice: "999",
         highPrice: "3999",
         priceCurrency: "INR",
         offerCount: "3",
@@ -131,7 +136,7 @@ const jsonLd = {
       },
       sameAs: [
         "https://x.com/The_PropDesk",
-        "https://www.facebook.com/people/Corestack/61575434111623/",
+        "https://www.facebook.com/people/PropDesk/61575434111623/",
         "https://www.instagram.com/prop_desk_crm/",
         "https://www.youtube.com/@PropertyDesk_01"
       ],
