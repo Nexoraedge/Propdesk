@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     siteName: "PropDesk",
     images: [
       {
-        url: "/banner.png",
+        url: "/twitter-banner.png",
         width: 1200,
         height: 630,
         alt: "PropDesk — Real Estate CRM & Property Management Software Banner",
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     title: "PropDesk — Property Management Software & Real Estate CRM for India",
     description:
       "India's smartest real estate CRM and property management software for brokers and agencies. 14-day free trial.",
-    images: ["/banner.png"],
+    images: ["/twitter-banner.png"],
   },
   alternates: { canonical: "/" },
   robots: {

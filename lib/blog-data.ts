@@ -252,6 +252,113 @@ Switching from WhatsApp chaos to PropDesk takes less than a day. You can import 
 Start your 14-day free trial today. No credit card required. See the difference for yourself.
     `,
   },
+  {
+    slug: "real-estate-seo-google-ranking-2025",
+    title: "How to Rank Your Real Estate Business on Google in 2025 (The New Rules)",
+    excerpt:
+      "Google's algorithms have changed entirely. Keyword stuffing no longer works. Discover what the new 'Helpful Content' era means for Indian real estate brokers and how to adapt your strategy.",
+    category: "Marketing",
+    tags: ["real estate SEO", "Google ranking", "property marketing"],
+    readTime: 7,
+    publishedAt: "2025-06-06",
+    author: { name: "Vikram Nair", role: "Head of Product, PropDesk", initials: "VN" },
+    metaTitle: "How to Rank Your Real Estate Business on Google in 2025 | PropDesk",
+    metaDescription:
+      "Learn how Indian real estate agents can adapt to Google's Helpful Content Update and EEAT guidelines to rank property listings higher in 2025.",
+    content: `
+## The Death of Old Real Estate SEO
+
+If you are still stuffing your property descriptions with "3BHK for sale in Mansarovar Jaipur best price cheap", you are actively hurting your website. Google's recent algorithm updates have completely killed old-school keyword stuffing.
+
+Today, Google penalizes thin, generic content and rewards high-quality, structured information that genuinely helps users make decisions.
+
+### The "Helpful Content" Era
+
+Google's current ranking system heavily prioritizes what they call "Helpful Content". For Indian real estate brokers, this means:
+- **Local Expertise**: Write about the nuances of specific localities (e.g., water supply in summer, upcoming metro connectivity).
+- **Genuine Descriptions**: Describe the actual condition and layout of the property, not just a list of amenities.
+- **Original Media**: Use your own unedited photos and videos instead of generic stock images or builder renders.
+
+### Understanding EEAT for Brokers
+
+Google ranks content based on **E-E-A-T**:
+- **Experience**: Do you actually operate in this market? (Show your real-world deals).
+- **Expertise**: Do you understand the legalities (RERA, Patta, JDA)?
+- **Authoritativeness**: Are other local businesses linking to your site?
+- **Trustworthiness**: Is your contact information clear? Do you have verified client reviews?
+
+Establishing EEAT means adding clear author bios to your blog posts and ensuring your "About Us" page proves your track record in the Indian market.
+
+### Technical Must-Haves
+
+Great content is useless if your website is broken. You need:
+1.  **Fast Loading Speeds**: Your site must load in under 2.5 seconds on mobile (3G/4G networks).
+2.  **Mobile Optimization**: 80% of real estate searches happen on phones.
+3.  **Clean Property Slugs**: Use URLs like \`/p/luxury-3bhk-mansarovar-jaipur\` instead of \`/property?id=12345\`.
+
+### How PropDesk Helps Your SEO
+
+The easiest way to generate SEO-optimized property listings is to use a CRM that structures the data for you. When you enter a property into PropDesk, it automatically organizes the BHK, area, price, and amenities into clean, structured data formats that Google loves to index.
+
+Stop fighting the algorithm. Provide genuine value to your buyers, and the rankings will follow.
+    `,
+  },
+  {
+    slug: "scaling-real-estate-agency-india-guide",
+    title: "The Ultimate Guide to Scaling a Real Estate Agency in India",
+    excerpt:
+      "Stuck at 2-3 deals a month? Scaling an Indian real estate brokerage requires moving past solo operations, distributing leads efficiently, and protecting your database. Here is the ultimate playbook.",
+    category: "Business Growth",
+    tags: ["real estate business", "scale agency", "brokerage growth"],
+    readTime: 9,
+    publishedAt: "2025-06-06",
+    author: { name: "Priya Sinha", role: "Customer Success, PropDesk", initials: "PS" },
+    metaTitle: "Ultimate Guide to Scaling a Real Estate Agency in India | PropDesk",
+    metaDescription:
+      "Learn the exact strategies to scale your real estate agency in India. From hiring sub-agents to protecting your data and automating follow-ups.",
+    content: `
+## Moving Past Solo Operations
+
+Every successful Indian broker eventually hits a ceiling. You can only answer so many phone calls, attend so many site visits, and remember so many buyer requirements before balls start dropping.
+
+To scale past 2-3 deals a month, you need to transition from a "solo operator" to an "agency owner."
+
+### When to Hire Sub-Agents
+
+You should hire your first sub-agent when:
+1. You are consistently generating more leads than you can call within 15 minutes.
+2. You are missing follow-ups because you are busy on site visits.
+3. You want to expand into a new locality but lack the physical time to be there.
+
+### The Lead Distribution Problem
+
+The biggest bottleneck in scaling is lead distribution. If you generate 50 leads from a Facebook ad, how do you distribute them? 
+If you send them to a WhatsApp group, it becomes a free-for-all. 
+
+You need a systematic way to assign leads to specific agents based on their workload, locality expertise, and past performance. A proper CRM ensures that every lead is assigned an owner, and that owner is held accountable for following up.
+
+### Protecting Your Database (The Biggest Fear)
+
+The number one reason Indian brokers refuse to scale is the fear of data theft. *"If I hire agents, they will steal my direct sellers and buyers and start their own agency."*
+
+This is a valid fear if you are using Excel or WhatsApp. 
+
+To scale safely, you must use a CRM with **Role-Based Security**. This means:
+- Sub-agents can only see the leads assigned to them.
+- They cannot export the entire database to Excel.
+- Seller phone numbers are hidden from junior agents (they have to request contact or the system routes calls automatically).
+
+### Building Predictable Revenue
+
+Scaling isn't about working harder; it's about building a machine that produces predictable revenue. 
+
+1. **Systematic Matching**: Stop relying on your agents' memory to match properties to buyers. Use an automated matching engine to instantly pair new inventory with existing leads.
+2. **Automated Follow-ups**: Force your team to log notes after every call and set mandatory follow-up dates.
+3. **Analytics**: Review weekly reports to see which lead sources yield the highest conversion rates and double down on that marketing spend.
+
+Scaling is entirely possible when you stop relying on heroic individual effort and start relying on systems and software.
+    `,
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
