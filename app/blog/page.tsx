@@ -100,8 +100,20 @@ export default function BlogPage() {
                 href={`/blog/${featured.slug}`}
                 className="group block bg-slate-900 rounded-[2.5rem] overflow-hidden hover:shadow-2xl hover:shadow-slate-900/35 border border-slate-800 transition-all duration-300 relative"
               >
+                {/* Featured Image Background */}
+                {featured.content.match(/!\[.*?\]\((.*?)\)/) && (
+                  <div className="absolute inset-0 z-0 opacity-40 group-hover:opacity-50 transition-opacity duration-500">
+                    <img 
+                      src={featured.content.match(/!\[.*?\]\((.*?)\)/)?.[1]} 
+                      alt={featured.title}
+                      className="w-full h-full object-cover mix-blend-overlay"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-slate-900/40" />
+                  </div>
+                )}
+
                 {/* Visual Accent */}
-                <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-emerald-500/5 rounded-full blur-[80px] pointer-events-none" />
+                <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[80px] pointer-events-none" />
 
                 <div className="p-8 md:p-14 lg:p-16 relative z-10 flex flex-col justify-between min-h-[400px]">
                   <div>
@@ -169,9 +181,16 @@ export default function BlogPage() {
                   >
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="group flex flex-col h-full bg-white border border-slate-200 rounded-4xl p-8 shadow-xl shadow-slate-200/40 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-slate-200/50 hover:border-emerald-200 transition-all duration-300 relative overflow-hidden"
+                      className="group flex flex-col h-full bg-white border border-slate-200 rounded-4xl p-6 shadow-xl shadow-slate-200/40 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-slate-200/50 hover:border-emerald-200 transition-all duration-300 relative overflow-hidden"
                     >
                       <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-50 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+
+                      {/* Cover Image */}
+                      {post.content.match(/!\[.*?\]\((.*?)\)/) && (
+                        <div className="relative w-full h-48 mb-6 rounded-2xl overflow-hidden shrink-0 border border-slate-100 shadow-sm">
+                          <img src={post.content.match(/!\[.*?\]\((.*?)\)/)?.[1]} alt={post.title} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" />
+                        </div>
+                      )}
 
                       {/* Header metadata */}
                       <div className="flex items-center justify-between gap-3 mb-6">

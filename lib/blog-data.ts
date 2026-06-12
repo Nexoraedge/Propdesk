@@ -19,19 +19,21 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
-    slug: "best-property-management-software-india-2025",
-    title: "Best Property Management Software for Indian Brokers in 2025",
+    slug: "best-property-management-software-india-2026",
+    title: "Best Property Management Software for Indian Brokers in 2026",
     excerpt:
       "Managing hundreds of listings in Excel is holding your brokerage back. We break down what to look for in a property management software built for Indian real estate — and how the right CRM can help you close 3x more deals.",
     category: "Product Guide",
     tags: ["property management software", "real estate CRM India", "broker tools"],
     readTime: 8,
-    publishedAt: "2025-05-15",
-    author: { name: "Vikram Nair", role: "Head of Product, PropDesk", initials: "VN" },
-    metaTitle: "Best Property Management Software for Indian Brokers in 2025 | PropDesk",
+    publishedAt: "2026-05-15",
+    author: { name: "Hardik Jain", role: "Head of Product, PropDesk", initials: "VN" },
+    metaTitle: "Best Property Management Software for Indian Brokers in 2026 | PropDesk",
     metaDescription:
-      "Discover the best property management software for real estate agents and brokers in India. Compare features, pricing, and why PropDesk is the top choice for Indian agencies in 2025.",
+      "Discover the best property management software for real estate agents and brokers in India. Compare features, pricing, and why PropDesk is the top choice for Indian agencies in 2026.",
     content: `
+![Best Property Management Software](/images/blog/crm_software_2026.png)
+
 ## Why Indian Brokers Need a Dedicated Property Management Software
 
 If you're managing real estate in India — plots in Jaipur, apartments in Bangalore, villas in Gurgaon — you know that no generic global CRM understands your workflow. You deal with Gaj, Bigha, and Kanal. Your clients want WhatsApp PDFs, not email brochures. You have sub-agents with their own databases, and you need to keep seller info secure.
@@ -56,7 +58,7 @@ Growing agencies in India often have 5–20+ sub-agents. Your property managemen
 
 The biggest time sink for Indian brokers is manually scanning listings to find properties that match a buyer's budget and requirements. The right real estate software automates this completely using a smart matching engine.
 
-### Why PropDesk is the Best Choice in 2025
+### Why PropDesk is the Best Choice in 2026
 
 PropDesk was designed from the ground up for Indian real estate:
 
@@ -95,12 +97,14 @@ Try PropDesk free for 14 days and see the difference.
     category: "Buyer's Guide",
     tags: ["real estate CRM system", "CRM for brokers India", "property CRM"],
     readTime: 10,
-    publishedAt: "2025-05-08",
+    publishedAt: "2026-05-08",
     author: { name: "Priya Sinha", role: "Customer Success, PropDesk", initials: "PS" },
-    metaTitle: "How to Choose a Real Estate CRM System in India — Complete Guide 2025 | PropDesk",
+    metaTitle: "How to Choose a Real Estate CRM System in India — Complete Guide 2026 | PropDesk",
     metaDescription:
-      "A practical step-by-step guide to evaluating and choosing the best real estate CRM system for Indian brokers and agencies in 2025. Compare features, ask the right questions, and find the perfect fit.",
+      "A practical step-by-step guide to evaluating and choosing the best real estate CRM system for Indian brokers and agencies in 2026. Compare features, ask the right questions, and find the perfect fit.",
     content: `
+![How to Choose a Real Estate CRM](/images/blog/choose_crm_2026.png)
+
 ## Why Your Real Estate Agency Needs a Proper CRM System
 
 A real estate CRM system is the central nervous system of your brokerage. It stores all your leads, tracks every conversation, matches buyers to properties, and ensures no deal falls through the cracks because of a missed follow-up.
@@ -187,12 +191,14 @@ Start your 14-day free trial — full access, no credit card required.
     category: "Industry Insights",
     tags: ["broker CRM software", "WhatsApp real estate India", "property management"],
     readTime: 6,
-    publishedAt: "2025-04-28",
-    author: { name: "Arjun Kapoor", role: "Co-Founder, PropDesk", initials: "AK" },
+    publishedAt: "2026-04-28",
+    author: { name: "Harsh Jain", role: "Co-Founder, PropDesk", initials: "AK" },
     metaTitle: "Stop Using WhatsApp Groups for Real Estate — Use Broker CRM Software Instead | PropDesk",
     metaDescription:
       "Indian brokers lose thousands of rupees in commissions every month because of chaotic WhatsApp group management. Learn how broker CRM software like PropDesk solves these problems permanently.",
     content: `
+![WhatsApp vs CRM](/images/blog/whatsapp_vs_crm.png)
+
 ## The WhatsApp Group Problem Every Indian Broker Knows
 
 You're in 15 different WhatsApp groups. One for your buyers, one for your sellers, one for your sub-agents, another for a housing scheme. Someone shares a property — it gets buried under 200 messages within an hour. A buyer asks about a listing from last week — you can't find it. A hot lead goes cold because you forgot to follow up.
@@ -253,19 +259,21 @@ Start your 14-day free trial today. No credit card required. See the difference 
     `,
   },
   {
-    slug: "real-estate-seo-google-ranking-2025",
-    title: "How to Rank Your Real Estate Business on Google in 2025 (The New Rules)",
+    slug: "real-estate-seo-google-ranking-2026",
+    title: "How to Rank Your Real Estate Business on Google in 2026 (The New Rules)",
     excerpt:
       "Google's algorithms have changed entirely. Keyword stuffing no longer works. Discover what the new 'Helpful Content' era means for Indian real estate brokers and how to adapt your strategy.",
     category: "Marketing",
     tags: ["real estate SEO", "Google ranking", "property marketing"],
     readTime: 7,
-    publishedAt: "2025-06-06",
-    author: { name: "Vikram Nair", role: "Head of Product, PropDesk", initials: "VN" },
-    metaTitle: "How to Rank Your Real Estate Business on Google in 2025 | PropDesk",
+    publishedAt: "2026-06-06",
+    author: { name: "Hardik Jain", role: "Head of Product, PropDesk", initials: "VN" },
+    metaTitle: "How to Rank Your Real Estate Business on Google in 2026 | PropDesk",
     metaDescription:
-      "Learn how Indian real estate agents can adapt to Google's Helpful Content Update and EEAT guidelines to rank property listings higher in 2025.",
+      "Learn how Indian real estate agents can adapt to Google's Helpful Content Update and EEAT guidelines to rank property listings higher in 2026.",
     content: `
+![Real Estate SEO](/images/blog/seo_real_estate_2026.png)
+
 ## The Death of Old Real Estate SEO
 
 If you are still stuffing your property descriptions with "3BHK for sale in Mansarovar Jaipur best price cheap", you are actively hurting your website. Google's recent algorithm updates have completely killed old-school keyword stuffing.
@@ -311,12 +319,14 @@ Stop fighting the algorithm. Provide genuine value to your buyers, and the ranki
     category: "Business Growth",
     tags: ["real estate business", "scale agency", "brokerage growth"],
     readTime: 9,
-    publishedAt: "2025-06-06",
+    publishedAt: "2026-06-06",
     author: { name: "Priya Sinha", role: "Customer Success, PropDesk", initials: "PS" },
     metaTitle: "Ultimate Guide to Scaling a Real Estate Agency in India | PropDesk",
     metaDescription:
       "Learn the exact strategies to scale your real estate agency in India. From hiring sub-agents to protecting your data and automating follow-ups.",
     content: `
+![Scaling a Real Estate Agency](/images/blog/scale_agency_india.png)
+
 ## Moving Past Solo Operations
 
 Every successful Indian broker eventually hits a ceiling. You can only answer so many phone calls, attend so many site visits, and remember so many buyer requirements before balls start dropping.
@@ -357,6 +367,62 @@ Scaling isn't about working harder; it's about building a machine that produces 
 3. **Analytics**: Review weekly reports to see which lead sources yield the highest conversion rates and double down on that marketing spend.
 
 Scaling is entirely possible when you stop relying on heroic individual effort and start relying on systems and software.
+    `,
+  },
+  {
+    slug: "ai-transforming-indian-real-estate-2026",
+    title: "How AI and Smart Match Engines are Transforming Indian Real Estate in 2026",
+    excerpt:
+      "The days of manually matching Bighas to buyer budgets are over. In 2026, Artificial Intelligence is doing the heavy lifting. Discover how Smart Match engines are helping Indian brokers close deals 4x faster.",
+    category: "Technology",
+    tags: ["PropTech 2026", "AI in real estate", "Smart Match Engine", "Indian brokers"],
+    readTime: 8,
+    publishedAt: "2026-06-12",
+    author: { name: "Hardik Jain", role: "Head of Product, PropDesk", initials: "VN" },
+    metaTitle: "How AI is Transforming Indian Real Estate Brokerages in 2026 | PropDesk",
+    metaDescription:
+      "Learn how AI and Smart Match engines are helping Indian real estate brokers automate property matching, manage leads, and close deals faster in 2026.",
+    content: `
+![AI in Real Estate](/images/blog/ai_real_estate_2026.png)
+
+## The New Era of Indian Real Estate
+
+We are officially halfway through 2026, and the Indian real estate market has shifted dramatically. Buyers are moving faster, sellers expect immediate updates, and the volume of property data is overwhelming. 
+
+For years, brokers relied on incredible memory and endless Excel sheets to match a buyer looking for a *"2 Bigha plot under 50 Lakhs"* with the right seller. Today, that manual process is what separates the struggling agencies from the scaling ones.
+
+Welcome to the era of the **Smart Match Engine**.
+
+### What Exactly is a Smart Match Engine?
+
+Think of a Smart Match Engine as your agency's super-brain. When you enter a new buyer's requirements into your CRM, the AI doesn't just do a basic text search. It understands context. 
+
+If a client wants a property in "South Jaipur" with a specific budget, the AI scans your entire database of thousands of properties in milliseconds. It understands local area units natively—knowing exactly how to compare Gaj, Bigha, and Sq. Ft. without missing a beat—and instantly generates a list of the top 5 perfect matches, complete with a "Match Confidence Score."
+
+### Why 2026 is the Tipping Point
+
+**1. The Death of the "Wait and See" Buyer**
+In 2026, buyers don't wait three days for you to "check your files" and get back to them. If you can't WhatsApp them a PDF brochure of three perfectly matched properties within 10 minutes of their inquiry, they are calling another broker. AI gives you that instant recall speed.
+
+**2. Handling Messy Data**
+Indian real estate data is notoriously messy. One seller gives you a price in "Lakhs," another gives you a "per sqft rate." A Smart Match Engine automatically standardizes this data in the background. It knows that a 1000 sqft plot at ₹1500/sqft matches a buyer with a ₹15 Lakh budget. 
+
+**3. Zero Cold Leads**
+How many times have you uploaded a new property to your database, completely forgetting that a buyer from three months ago was looking for exactly that? AI never forgets. The moment that new property hits your CRM, the Smart Match Engine flags the old buyer and sends you a push notification: *"This new listing is a 95% match for Rahul from March. Call him."*
+
+### How PropDesk is Leading the Charge
+
+At PropDesk, our 2026 architecture is built entirely around this concept. We didn't just build a digital filing cabinet; we built an active assistant. 
+
+When you use the PropDesk platform, our AI actively monitors your inventory. It protects your data with strict role-based access for sub-agents, prevents duplicate listings, and most importantly, serves up the deals you should be focusing on today.
+
+### The Bottom Line
+
+Artificial Intelligence isn't going to replace the Indian real estate broker. Real estate will always be a relationship business built on trust. 
+
+However, **a broker using AI will absolutely replace a broker who isn't.** 
+
+Stop spending 4 hours a day manually scrolling through WhatsApp groups trying to connect the dots. Let the Smart Match Engine do the data work, so you can get back to doing what you do best: building relationships and closing deals.
     `,
   },
 ];

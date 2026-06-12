@@ -20,7 +20,17 @@ function renderMarkdown(content: string): React.ReactNode[] {
   while (i < lines.length) {
     const line = lines[i].trim();
 
-    if (line.startsWith("## ")) {
+    if (line.startsWith("![") && line.includes("](")) {
+      const altMatch = line.match(/!\[(.*?)\]/);
+      const urlMatch = line.match(/\((.*?)\)/);
+      if (urlMatch) {
+        elements.push(
+          <div key={i} className="my-10 rounded-3xl overflow-hidden border border-slate-100 shadow-xl shadow-slate-200/40">
+            <img src={urlMatch[1]} alt={altMatch?.[1] || "Blog image"} className="w-full h-auto object-cover" />
+          </div>
+        );
+      }
+    } else if (line.startsWith("## ")) {
       elements.push(
         <h2 key={i} className="text-2xl md:text-3xl font-extrabold text-slate-900 font-display mt-12 mb-5 leading-snug">
           {line.slice(3)}
