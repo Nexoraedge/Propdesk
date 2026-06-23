@@ -3,6 +3,7 @@ import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next"
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -151,6 +152,7 @@ export default function RootLayout({
       className={`${outfit.variable} ${plusJakartaSans.variable} scroll-smooth antialiased`}
       data-scroll-behavior="smooth"
     >
+      <Analytics />
       <head>
         <script
           type="application/ld+json"
