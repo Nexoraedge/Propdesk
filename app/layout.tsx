@@ -19,24 +19,20 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://thepropdesk.in"),
   title: {
-    default: "PropDesk — Property Management Software & Real Estate CRM for Indian Brokers",
+    default: "Best Real Estate CRM & Property Management Software India | PropDesk",
     template: "%s | PropDesk",
   },
   description:
-    "PropDesk is India's leading real estate CRM system and property management software built for brokers, agents, and agencies. Auto-match buyers to properties, manage 500+ listings, automate follow-ups, and close deals faster. 14-day free trial.",
+    "India's leading real estate CRM system and property management software for brokers and agencies. Auto-match buyers, manage leads, and close deals faster. 14-day free trial.",
   keywords: [
-    "property management software India",
-    "real estate CRM system",
+    "real estate management software India",
+    "property management software for brokers",
+    "real estate CRM India",
     "broker CRM software",
-    "lead management for real estate agents",
     "property listing software",
-    "real estate software for Indian brokers",
-    "best CRM for real estate India",
+    "best real estate software India",
+    "lead management for real estate agents",
     "real estate agency software",
-    "property management CRM",
-    "broker software India",
-    "Gaj Bigha converter",
-    "Indian real estate CRM",
     "PropDesk",
     "real estate automation India",
     "smart property matching",
@@ -54,9 +50,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: "https://thepropdesk.in",
-    title: "PropDesk — Property Management Software & Real Estate CRM for India",
+    title: "Best Real Estate CRM & Property Management Software India",
     description:
-      "Auto-match buyers to properties, manage listings, automate follow-ups. India's smartest real estate CRM for brokers and agencies. Start your 14-day free trial.",
+      "India's leading real estate CRM system and property management software for brokers and agencies. Auto-match buyers, manage leads, and close deals faster. 14-day free trial.",
     siteName: "PropDesk",
     images: [
       {
@@ -69,9 +65,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PropDesk — Property Management Software & Real Estate CRM for India",
+    title: "Best Real Estate CRM & Property Management Software India",
     description:
-      "India's smartest real estate CRM and property management software for brokers and agencies. 14-day free trial.",
+      "India's leading real estate CRM system and property management software for brokers and agencies. 14-day free trial.",
     images: ["/twitter-banner.png"],
   },
   alternates: { canonical: "/" },

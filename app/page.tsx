@@ -286,15 +286,15 @@ export default function Home() {
 
             {/* Headline */}
             <motion.h1 variants={fadeUp} className="text-6xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 font-display leading-[1.05] tracking-tight mb-8 text-balance relative">
-              <span className="block text-slate-800">Ditch the Diary.</span>
+              <span className="block text-slate-800">Best Real Estate CRM &</span>
               <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-500 to-emerald-400 pb-2">
-                Close Deals Faster.
+                Property Management Software
               </span>
             </motion.h1>
 
             {/* Subheadline */}
             <motion.p variants={fadeUp} className="text-xl md:text-2xl text-slate-500 font-medium leading-relaxed max-w-3xl mx-auto mb-10">
-              The smartest real estate CRM built exclusively for Indian brokers. Auto-match buyers to properties in seconds and manage your entire team on the cloud.
+              Ditch the diary. Close deals faster. The smartest software built exclusively for Indian brokers to auto-match buyers and manage teams on the cloud.
             </motion.p>
 
             {/* CTAs */}
@@ -470,7 +470,7 @@ export default function Home() {
               <span className="badge-white">Everything you need</span>
             </motion.div>
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-extrabold text-white font-display mb-4">
-              Built for how Indian brokers actually work
+              Real Estate Agency Software built for how Indian brokers actually work
             </motion.h2>
             <motion.p variants={fadeUp} className="text-slate-400 text-lg">
               Every feature is designed around the real challenges of Indian real estate — not some generic global CRM.
@@ -662,7 +662,7 @@ export default function Home() {
             className="text-center mb-14"
           >
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-extrabold text-slate-900 font-display mb-4">
-              Frequently asked questions
+              Frequently asked questions about our Real Estate CRM
             </motion.h2>
             <motion.p variants={fadeUp} className="text-slate-500">
               Everything you need to know about PropDesk property management software.
