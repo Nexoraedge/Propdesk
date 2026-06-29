@@ -19,6 +19,7 @@ import {
   Star,
   Check,
   X,
+  Bot,
 } from "lucide-react";
 
 const fadeUp = {
@@ -87,6 +88,20 @@ const tabs = [
       "Assign leads with custom permission levels",
     ],
   },
+  {
+    id: "copilot",
+    label: "PropDesk Copilot",
+    icon: Bot,
+    image: "/assets/aibot.png", // Re-using a nice image for now since they said "share u the ss" - they can replace it later or it's fine.
+    alt: "PropDesk Copilot AI — Real Estate Artificial Intelligence",
+    title: "Your personal Real Estate AI",
+    points: [
+      "Natural language property searching (e.g. 'Find a 3BHK in Gurgaon under 2Cr')",
+      "Instant matching within 3 seconds across your entire database",
+      "Auto-drafting of leads and clients just by typing notes",
+      "Pull pipeline stats, revenue, and leaderboards instantly",
+    ],
+  },
 ];
 
 const propDeskVsOld = [
@@ -98,6 +113,7 @@ const propDeskVsOld = [
   { feature: "Automated follow-up reminders", propdesk: true, excel: false },
   { feature: "Cloud backup & mobile access", propdesk: true, excel: false },
   { feature: "Commission & deal tracking", propdesk: true, excel: false },
+  { feature: "AI Copilot & Natural Language Search", propdesk: true, excel: false },
 ];
 
 const modules = [
@@ -109,6 +125,7 @@ const modules = [
   { icon: Shield, title: "Role Security", desc: "Ensure database security by defining strict viewing rules and access roles for agents." },
   { icon: Bell, title: "Smart Notifications", desc: "Never miss a follow-up with intelligent push notifications and task reminders." },
   { icon: Globe, title: "Cloud & Mobile", desc: "Access everything from any device, online or offline on slow 3G connections." },
+  { icon: Bot, title: "PropDesk Copilot", desc: "Your personal AI Executive. Find matches, add leads, and pull stats using natural language." },
 ];
 
 export default function FeaturesPage() {
@@ -244,7 +261,7 @@ export default function FeaturesPage() {
             className="text-center mb-14"
           >
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-extrabold text-white font-display mb-4">
-              8 powerful modules. One platform.
+              9 powerful modules. One platform.
             </motion.h2>
             <motion.p variants={fadeUp} className="text-slate-400 text-lg max-w-xl mx-auto">
               Everything integrated so you never switch between apps again.
@@ -256,7 +273,7 @@ export default function FeaturesPage() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
           >
             {modules.map((m, i) => {
               const Icon = m.icon;

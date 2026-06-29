@@ -19,6 +19,56 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "introducing-propdesk-copilot",
+    title: "The Era of Manual Real Estate CRMs is Over: Meet PropDesk Copilot",
+    excerpt:
+      "Brokers are spending more time managing their tools than closing deals. Today, we change the paradigm entirely. Introducing PropDesk Copilot, your intelligent real estate AI executive.",
+    category: "Product Guide",
+    tags: ["PropDesk Copilot", "AI in real estate", "PropTech 2026", "product launch"],
+    readTime: 4,
+    publishedAt: "2026-06-29",
+    author: { name: "Divit Jain", role: "Founder, PropDesk", initials: "DJ" },
+    metaTitle: "Introducing PropDesk Copilot: The AI Executive for Real Estate Brokers | PropDesk",
+    metaDescription:
+      "Meet PropDesk Copilot, the AI real estate executive that matches properties in 3 seconds, auto-drafts clients, and gives instant analytics.",
+    content: `
+![PropDesk Copilot](/images/blog/ai_real_estate_2026.png)
+
+## The Era of Manual Real Estate CRMs is Over
+
+Let's face a difficult truth about the real estate industry: **Brokers are spending more time managing their tools than they are closing deals.** 
+
+Every time a potential client calls, you have to frantically open your CRM, click through multiple filters, scroll past outdated listings, and try to stitch together a matching property—all while the client is waiting on the other line. When the call ends, you have to manually type out their requirements into three different input fields. 
+
+This is not how high-end real estate should operate. Time is your most valuable asset, and traditional software is stealing it.
+
+Today, we are changing the paradigm completely. 
+
+## Introducing PropDesk Copilot 
+
+PropDesk Copilot is not just another search bar. It is an intelligent, natural-language AI Executive built directly into your PropDesk dashboard. It understands how real estate agents actually talk and think, and it executes complex tasks in milliseconds.
+
+Here is how PropDesk Copilot is going to save your agency hundreds of hours every single month:
+
+### 1. Precision Matching in 3 Seconds
+Stop fiddling with filters. Now, you can simply type or speak: *"Find me premium 3BHK flats above 1.5 Cr in Vaishali Nagar for a new client."* Copilot will instantly scan your entire agency's database and return the exact, beautifully formatted property cards that match the criteria.
+
+### 2. Zero-Click Data Entry (Auto-Drafting)
+Adding a new lead or property listing used to take 5 minutes of tedious form-filling. Now? Just tell Copilot: *"Added a new lead named Rahul. He wants a commercial plot in Jagatpura under 5 Cr."* Copilot will automatically extract the name, budget, location, and property type, and instantly draft a perfect record into your database. 
+
+### 3. Instant Business Analytics
+Need to know your performance for a Monday morning meeting? Just ask: *"Show me my stats for this month."* Copilot will instantly generate a breakdown of your total revenue, active bookings, and new leads. If you are an Admin, you can even ask for the Team Leaderboard to see who is performing best.
+
+### 4. Enterprise-Grade Security
+PropDesk Copilot operates with strict data governance. Agents can only query and view their own leads and assigned properties, ensuring that your agency's internal privacy policies are perfectly upheld without any extra configuration.
+
+## Reclaim Your Time
+Your job is to build relationships and close deals. Let PropDesk Copilot handle the data entry, the searching, and the reporting. 
+
+PropDesk Copilot is rolling out today. Log into your dashboard, click on the Copilot icon in the bottom right, and experience the future of real estate management.
+    `,
+  },
+  {
     slug: "best-property-management-software-india-2026",
     title: "Best Property Management Software for Indian Brokers in 2026",
     excerpt:
