@@ -166,79 +166,80 @@ export default function PricingPage() {
                 key={i}
                 variants={fadeUp}
                 whileHover={{ y: -8 }}
-                className={`relative rounded-[2rem] flex flex-col ${plan.popular
-                  ? "bg-slate-900 border border-slate-800 shadow-2xl shadow-emerald-900/20 md:-translate-y-4"
-                  : "bg-white border border-slate-200 shadow-xl shadow-slate-200/40"
-                  } p-8 overflow-hidden transition-all duration-300`}
+                className={`relative rounded-[2rem] flex flex-col p-8 transition-all duration-300 ${plan.popular
+                  ? "bg-white ring-2 ring-emerald-500 shadow-2xl shadow-emerald-500/20 md:-translate-y-4"
+                  : "bg-white border border-slate-200 shadow-xl shadow-slate-200/50 mt-4 md:mt-0"
+                  }`}
               >
                 {plan.popular && (
                   <>
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-[60px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
-                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gradient-to-r from-emerald-500 to-emerald-400 text-white text-[11px] font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-sm border border-emerald-300/30">
+                    <div className="absolute inset-0 bg-gradient-to-b from-emerald-50/80 to-transparent rounded-[2rem] pointer-events-none" />
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap bg-emerald-500 text-white text-[10px] font-extrabold px-5 py-1.5 rounded-full uppercase tracking-widest shadow-md border border-emerald-400 z-10">
                       Most Popular
                     </div>
                   </>
                 )}
 
-                <div className="mb-3">
-                  <span className={`text-xs font-bold uppercase tracking-widest ${plan.popular ? "text-emerald-400" : "text-emerald-600"}`}>
+                <div className="relative z-10 mb-3 pt-2">
+                  <span className={`text-xs font-bold uppercase tracking-widest ${plan.popular ? "text-emerald-600" : "text-emerald-600"}`}>
                     {plan.badge}
                   </span>
                 </div>
-                <h2 className={`text-3xl font-medium font-playfair mb-3 tracking-tight ${plan.popular ? "text-white" : "text-slate-900"}`}>
+                <h2 className={`relative z-10 text-3xl font-medium font-playfair mb-3 tracking-tight text-slate-900`}>
                   {plan.name}
                 </h2>
-                <p className={`text-sm leading-relaxed mb-8 font-medium ${plan.popular ? "text-slate-400" : "text-slate-500"}`}>
+                <p className={`relative z-10 text-sm leading-relaxed mb-8 font-medium text-slate-500`}>
                   {plan.description}
                 </p>
 
                 {/* Price */}
-                <div className={`flex items-baseline gap-1 mb-8 pb-8 border-b ${plan.popular ? "border-slate-800" : "border-slate-100"}`}>
+                <div className={`relative z-10 flex items-baseline gap-1 mb-8 pb-8 border-b ${plan.popular ? "border-emerald-100" : "border-slate-100"}`}>
                   {plan.customPricing ? (
-                    <span className={`text-4xl font-extrabold font-display ${plan.popular ? "text-white" : "text-slate-900"}`}>
+                    <span className={`text-4xl font-extrabold font-display text-slate-900`}>
                       Custom
                     </span>
                   ) : (
                     <>
-                      <span className={`text-sm font-bold ${plan.popular ? "text-slate-400" : "text-slate-400"}`}>₹</span>
-                      <span className={`text-5xl font-extrabold font-display ${plan.popular ? "text-white" : "text-slate-900"}`}>
+                      <span className={`text-sm font-bold text-slate-400`}>₹</span>
+                      <span className={`text-5xl font-extrabold font-display text-slate-900`}>
                         {billing === "annual" ? plan.annualPrice.toLocaleString("en-IN") : plan.monthlyPrice.toLocaleString("en-IN")}
                       </span>
-                      <span className={`text-sm ${plan.popular ? "text-slate-400" : "text-slate-400"}`}>/mo</span>
+                      <span className={`text-sm text-slate-400`}>/mo</span>
                     </>
                   )}
                 </div>
 
                 {billing === "annual" && !plan.customPricing && (
-                  <p className={`text-xs mb-4 -mt-4 font-semibold ${plan.popular ? "text-emerald-400" : "text-emerald-600"}`}>
+                  <p className={`relative z-10 text-xs mb-4 -mt-4 font-semibold text-emerald-600`}>
                     Billed ₹{(plan.annualPrice * 12).toLocaleString("en-IN")}/year — save ₹{((plan.monthlyPrice - plan.annualPrice) * 12).toLocaleString("en-IN")}
                   </p>
                 )}
 
-                {/* Maintain spacing if annual is selected but custom pricing is shown */}
                 {billing === "annual" && plan.customPricing && (
-                  <p className="text-xs mb-4 -mt-4 font-semibold opacity-0">Spacer</p>
+                  <p className="relative z-10 text-xs mb-4 -mt-4 font-semibold opacity-0">Spacer</p>
                 )}
 
-                <div className="space-y-6 flex-1">
+                <div className="relative z-10 space-y-6 flex-1">
                   <ul className="space-y-4">
                     {plan.features.map((feature, j) => (
-                      <li key={j} className={`flex items-start gap-3 text-sm font-medium ${plan.popular ? "text-slate-300" : "text-slate-600"}`}>
+                      <li key={j} className={`flex items-start gap-3 text-sm font-medium ${feature === "PropDesk Copilot AI" ? "text-slate-900" : "text-slate-600"}`}>
                         {feature === "PropDesk Copilot AI" ? (
-                          <Bot className={`w-5 h-5 shrink-0 ${plan.popular ? "text-emerald-400" : "text-emerald-500"}`} />
+                          <div className={`mt-0.5 p-1 rounded-full ${plan.popular ? "bg-emerald-100 text-emerald-600" : "bg-emerald-50 text-emerald-500"}`}>
+                            <Bot className="w-3.5 h-3.5 shrink-0" />
+                          </div>
                         ) : (
-                          <Check className={`w-5 h-5 shrink-0 ${plan.popular ? "text-emerald-400" : "text-emerald-500"}`} />
+                          <Check className={`w-5 h-5 shrink-0 ${plan.popular ? "text-emerald-500" : "text-slate-300"}`} />
                         )}
-                        <span className={feature === "PropDesk Copilot AI" ? (plan.popular ? "text-emerald-400 font-bold flex items-center gap-2" : "text-emerald-600 font-bold flex items-center gap-2") : ""}>
+                        <span className={feature === "PropDesk Copilot AI" ? "font-bold flex items-center gap-2" : ""}>
                           {feature}
-                          {feature === "PropDesk Copilot AI" && <span className={`text-[9px] px-2 py-0.5 rounded-full uppercase tracking-widest font-bold ${plan.popular ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30" : "bg-emerald-100 text-emerald-700 border border-emerald-200"}`}>New</span>}
+                          {feature === "PropDesk Copilot AI" && <span className={`text-[9px] px-2 py-0.5 rounded-full uppercase tracking-widest font-bold ${plan.popular ? "bg-emerald-500 text-white" : "bg-emerald-100 text-emerald-700"}`}>New</span>}
                         </span>
                       </li>
                     ))}
                     {plan.notIncluded.map((f, fi) => (
-                      <li key={`no-${fi}`} className="flex items-center gap-2.5 text-sm opacity-40">
-                        <span className="w-4 h-4 shrink-0 text-slate-400">—</span>
-                        <span className={plan.popular ? "text-slate-500" : "text-slate-400"}>{f}</span>
+                      <li key={`no-${fi}`} className="flex items-center gap-3 text-sm opacity-50">
+                        <span className="w-5 h-5 flex items-center justify-center shrink-0 text-slate-300">—</span>
+                        <span className="text-slate-500">{f}</span>
                       </li>
                     ))}
                   </ul>
@@ -246,14 +247,14 @@ export default function PricingPage() {
 
                 <Link
                   href="/contact"
-                  className={`w-full text-center py-3.5 rounded-xl font-bold text-sm transition-all ${plan.popular
-                    ? "bg-emerald-500 hover:bg-emerald-400 text-white shadow-lg shadow-emerald-900/30"
+                  className={`relative z-10 w-full text-center py-4 rounded-xl font-bold text-sm transition-all mt-8 ${plan.popular
+                    ? "bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-600/30 ring-2 ring-emerald-600 ring-offset-2 ring-offset-white"
                     : "bg-slate-900 hover:bg-slate-800 text-white"
                     }`}
                 >
                   {plan.cta}
                 </Link>
-                <p className={`text-center text-[11px] mt-2 ${plan.popular ? "text-slate-500" : "text-slate-400"}`}>
+                <p className={`relative z-10 text-center text-[11px] mt-3 font-medium text-slate-400`}>
                   {plan.customPricing ? "Talk to our team" : "14-day free trial · No credit card"}
                 </p>
               </motion.div>
