@@ -135,6 +135,7 @@ function FeatureBlock({
 // ─── Main Page ────────────────────────────────────────────────────────────────
 export default function Home() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [billing, setBilling] = useState<"monthly" | "annual">("monthly");
 
   const features = [
     {
@@ -196,41 +197,65 @@ export default function Home() {
   const plans = [
     {
       name: "Starter",
-      price: 999,
       badge: "Solo Brokers",
+      originalMonthlyPrice: 999,
+      monthlyPrice: 499,
+      originalAnnualPrice: 999,
+      annualPrice: 399,
+      customPricing: false,
+      description: "Great for solo brokers moving away from diaries and Excel.",
       features: [
+        "PropDesk Copilot AI",
         "1 Admin Account",
-        "Up to 500 property listings",
-        "2-Sec Smart Matching",
+        "Unlimited property listings",
+        "Unlimited leads",
         "WhatsApp & PDF sharing",
-        "Daily reminders"
+        "Broker Management",
+        "Daily reminders",
       ],
+      cta: "Start Free Trial",
       popular: false,
     },
     {
       name: "Professional",
-      price: 1999,
       badge: "Growing Agencies",
+      originalMonthlyPrice: 1999,
+      monthlyPrice: 1499,
+      originalAnnualPrice: 1999,
+      annualPrice: 1199,
+      customPricing: false,
+      description: "Perfect for small teams managing multiple agents and clients.",
       features: [
-        "3 Agent Accounts included",
-        "+ ₹799/mo per additional agent",
-        "Up to 1500 property listings",
+        "PropDesk Copilot AI",
+        "4 Agent Accounts included",
+        "+ ₹449/mo per additional agent",
+        "Unlimited property listings",
+        "Unlimited leads",
         "Automated Follow-up Reminders",
-        "Real-Time Team Activity Log"
+        "Real-Time Team Activity Log",
       ],
+      cta: "Start Free Trial",
       popular: true,
     },
     {
       name: "Agency",
-      price: "Custom",
       badge: "Enterprise Firms",
+      originalMonthlyPrice: 0,
+      monthlyPrice: 0,
+      originalAnnualPrice: 0,
+      annualPrice: 0,
+      customPricing: true,
+      description: "For large property dealers, developer firms, and franchises.",
       features: [
+        "PropDesk Copilot AI",
         "Unlimited property listings",
+        "Unlimited leads",
         "Unlimited agent accounts",
         "Custom Agency Logo Branding",
         "Dedicated account manager",
-        "Priority 24/7 Support Desk"
+        "Priority 24/7 Support Desk",
       ],
+      cta: "Contact Sales",
       popular: false,
     },
   ];
@@ -277,21 +302,9 @@ export default function Home() {
             animate="show"
             className="text-center max-w-5xl mx-auto mb-20"
           >
-            {/* Launch Badge */}
-            <motion.div variants={fadeUp} className="flex justify-center mb-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-md border border-emerald-100 shadow-sm shadow-emerald-900/5">
-                <span className="flex h-2 w-2 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span className="text-sm font-bold text-emerald-800 tracking-wide uppercase">
-                  PropDesk 1.0 is Live
-                </span>
-              </div>
-            </motion.div>
 
             {/* Headline */}
-            <motion.h1 variants={fadeUp} className="text-6xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 font-display leading-[1.05] tracking-tight mb-8 text-balance relative">
+            <motion.h1 variants={fadeUp} className="text-6xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 mt-4 font-display leading-[1.05] tracking-tight mb-8 text-balance relative">
               <span className="block text-slate-800">Best Real Estate CRM &</span>
               <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-500 to-emerald-400 pb-2">
                 Property Management Software
@@ -348,7 +361,7 @@ export default function Home() {
           >
             {/* Glow halo */}
             <div className="absolute -inset-10 bg-gradient-to-b from-emerald-400/20 to-transparent rounded-[3rem] blur-3xl -z-10" />
-            
+
             <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-slate-900/30 ring-1 ring-slate-900/5 bg-white transform transition-transform duration-700 hover:scale-[1.01]">
               <div className="bg-slate-50 border-b border-slate-100 px-4 py-3 flex items-center">
                 <div className="flex gap-2">
@@ -385,7 +398,7 @@ export default function Home() {
         {/* Subtle background accents */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-slate-50 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-emerald-50/50 blur-[100px] rounded-full pointer-events-none translate-y-1/3 -translate-x-1/4" />
-        
+
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Left Content */}
@@ -397,16 +410,16 @@ export default function Home() {
                 </span>
                 Introducing PropDesk Copilot
               </div>
-              
+
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium font-playfair tracking-tight text-slate-900 leading-[1.15]">
                 Your personal <br />
                 <span className="text-[#051a67] italic font-light">Real Estate AI</span>
               </h2>
-              
+
               <p className="text-lg text-slate-600 leading-relaxed font-medium max-w-xl">
                 Say goodbye to manual data entry and endless searching. Our intelligent Copilot understands your natural language, matches clients with properties instantly, and automates your entire workflow.
               </p>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6">
                 <div className="space-y-2">
                   <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center border border-slate-200 shadow-sm">
@@ -415,7 +428,7 @@ export default function Home() {
                   <h3 className="font-semibold text-slate-900">Precision Matching</h3>
                   <p className="text-sm text-slate-500 leading-relaxed">Find exact property matches for any client in under 3 seconds.</p>
                 </div>
-                
+
                 <div className="space-y-2">
                   <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center border border-slate-200 shadow-sm">
                     <BarChart className="w-5 h-5 text-blue-500" />
@@ -423,7 +436,7 @@ export default function Home() {
                   <h3 className="font-semibold text-slate-900">Instant Analytics</h3>
                   <p className="text-sm text-slate-500 leading-relaxed">Pull your pipeline stats, revenue, or team leaderboard instantly.</p>
                 </div>
-                
+
                 <div className="space-y-2">
                   <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center border border-slate-200 shadow-sm">
                     <Clock className="w-5 h-5 text-purple-500" />
@@ -431,7 +444,7 @@ export default function Home() {
                   <h3 className="font-semibold text-slate-900">Auto-Drafting</h3>
                   <p className="text-sm text-slate-500 leading-relaxed">Add new clients or properties just by typing naturally.</p>
                 </div>
-                
+
                 <div className="space-y-2">
                   <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center border border-slate-200 shadow-sm">
                     <Shield className="w-5 h-5 text-amber-500" />
@@ -441,7 +454,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            
+
             {/* Right Side Mockup */}
             <div className="relative w-full max-w-lg mx-auto lg:max-w-none lg:mr-0">
               <div className="absolute -inset-4 bg-gradient-to-tr from-slate-200 to-slate-100 rounded-[2.5rem] blur-2xl opacity-60"></div>
@@ -458,7 +471,7 @@ export default function Home() {
                     </span>
                   </div>
                 </div>
-                
+
                 {/* Mockup Chat Body */}
                 <div className="flex-1 p-6 space-y-6 overflow-hidden flex flex-col justify-end bg-slate-50/50">
                   {/* User Message */}
@@ -467,7 +480,7 @@ export default function Home() {
                       Find me premium 3BHK flats above 1.5 Cr in Vaishali Nagar for a new client.
                     </div>
                   </div>
-                  
+
                   {/* AI Response */}
                   <div className="flex gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-300">
                     <div className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center shrink-0 shadow-sm mt-1">
@@ -477,7 +490,7 @@ export default function Home() {
                       <div className="text-sm text-slate-700 leading-relaxed">
                         I found 2 perfect matches for your client. Here are the premium 3BHK options currently available in Vaishali Nagar:
                       </div>
-                      
+
                       {/* Property Cards Mockup */}
                       <div className="space-y-3">
                         <div className="bg-white border border-slate-200 p-4 rounded-xl flex justify-between items-center shadow-sm hover:shadow-md transition-shadow">
@@ -497,7 +510,7 @@ export default function Home() {
                             <div className="text-[10px] font-bold text-emerald-600 uppercase tracking-wider mt-1">Available</div>
                           </div>
                         </div>
-                        
+
                         <div className="bg-white border border-slate-200 p-4 rounded-xl flex justify-between items-center shadow-sm hover:shadow-md transition-shadow">
                           <div className="flex items-center gap-3">
                             <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center border border-blue-100">
@@ -516,7 +529,7 @@ export default function Home() {
                           </div>
                         </div>
                       </div>
-                      
+
                       <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 bg-white px-2 py-1.5 rounded-md border border-slate-200 shadow-sm">
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
                         Found in 1.2s
@@ -524,7 +537,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Mockup Input Box */}
                 <div className="p-5 bg-white border-t border-slate-100">
                   <div className="bg-slate-50 border border-slate-200 rounded-full px-5 py-3 flex items-center justify-between shadow-inner">
@@ -687,7 +700,7 @@ export default function Home() {
           <div className="overflow-hidden w-full max-w-7xl mx-auto relative mt-12 py-4">
             <div className="absolute left-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
             <div className="absolute right-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
-            
+
             <motion.div
               className="flex gap-6 w-max"
               animate={{ x: ["0%", "-50%"] }}
@@ -718,87 +731,142 @@ export default function Home() {
       </section>
 
       {/* ═══ PRICING SNAPSHOT ══════════════════════════════════════════════════ */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="text-center max-w-2xl mx-auto mb-16"
-          >
-            <motion.div variants={fadeUp} className="flex justify-center mb-4">
-              <span className="badge-emerald">Simple Pricing</span>
-            </motion.div>
-            <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-extrabold text-slate-900 font-display mb-4">
-              Start free. Upgrade when you're ready.
-            </motion.h2>
-            <motion.p variants={fadeUp} className="text-slate-500 text-lg">
-              Every plan includes a full 14-day free trial. No credit card required.
-            </motion.p>
-          </motion.div>
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 font-display mb-6">
+              Simple pricing. No surprises.
+            </h2>
+            <p className="text-slate-500 text-lg">
+              Every plan includes a full 14-day free trial. No credit card required to start.
+            </p>
+          </div>
+
+          {/* Billing toggle */}
+          <div className="flex items-center justify-center gap-4 mb-12">
+            <span className={`text-sm font-bold ${billing === "monthly" ? "text-slate-900" : "text-slate-400"}`}>Monthly</span>
+            <button
+              onClick={() => setBilling(billing === "monthly" ? "annual" : "monthly")}
+              className={`relative w-14 h-7 rounded-full transition-colors duration-200 cursor-pointer ${billing === "annual" ? "bg-emerald-650" : "bg-slate-200"
+                }`}
+            >
+              <span
+                className={`absolute top-0.5 left-0.5 w-6 h-6 bg-white rounded-full shadow-md transition-transform duration-200 ${billing === "annual" ? "translate-x-7" : "translate-x-0"
+                  }`}
+              />
+            </button>
+            <span className={`text-sm font-bold flex items-center gap-2 ${billing === "annual" ? "text-slate-900" : "text-slate-400"}`}>
+              Annually
+              <span className="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                Save 20%
+              </span>
+            </span>
+          </div>
 
           <motion.div
             variants={stagger}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch"
           >
             {plans.map((p, i) => (
               <motion.div
                 key={i}
                 variants={fadeUp}
-                className={`relative rounded-2xl p-8 flex flex-col ${p.popular
-                    ? "bg-slate-900 text-white border-2 border-emerald-500 shadow-2xl shadow-emerald-900/20 md:-translate-y-3"
-                    : "bg-white border border-slate-200 shadow-sm"
+                className={`relative rounded-[2.5rem] p-8 md:p-10 flex flex-col transition-all duration-300 ${p.popular
+                  ? "bg-slate-900 text-white shadow-2xl shadow-slate-900/40 md:-translate-y-4 border border-slate-700"
+                  : "bg-white border border-slate-200 shadow-lg shadow-slate-200/50 hover:border-slate-300"
                   }`}
               >
                 {p.popular && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-emerald-500 text-white text-[11px] font-bold px-4 py-1 rounded-full uppercase tracking-wider">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-teal-400 text-white text-xs font-bold px-6 py-2 rounded-full uppercase tracking-widest shadow-lg shadow-emerald-500/30">
                     Most Popular
                   </div>
                 )}
-                <div className="mb-2">
-                  <span className={`text-[11px] font-bold uppercase tracking-widest ${p.popular ? "text-emerald-400" : "text-emerald-600"}`}>
+
+                <div className="mb-4">
+                  <span className={`text-xs font-bold uppercase tracking-widest ${p.popular ? "text-emerald-400" : "text-emerald-600"}`}>
                     {p.badge}
                   </span>
                 </div>
-                <h3 className={`text-xl font-bold mb-1 font-display ${p.popular ? "text-white" : "text-slate-900"}`}>{p.name}</h3>
-                <div className="flex items-baseline gap-1 mb-6 pb-6 border-b border-slate-700/30">
-                  {typeof p.price === "number" ? (
-                    <>
-                      <span className={`text-xs font-bold ${p.popular ? "text-slate-400" : "text-slate-400"}`}>₹</span>
-                      <span className={`text-4xl font-extrabold ${p.popular ? "text-white" : "text-slate-900"}`}>
-                        {p.price.toLocaleString("en-IN")}
-                      </span>
-                      <span className={`text-sm ${p.popular ? "text-slate-400" : "text-slate-400"}`}>/mo</span>
-                    </>
-                  ) : (
-                    <span className={`text-4xl font-extrabold ${p.popular ? "text-white" : "text-slate-900"}`}>
-                      {p.price}
+
+                <h3 className={`text-2xl font-black mb-2 font-display ${p.popular ? "text-white" : "text-slate-900"}`}>
+                  {p.name}
+                </h3>
+
+                <p className={`text-sm leading-relaxed mb-6 font-medium ${p.popular ? "text-slate-400" : "text-slate-550"}`}>
+                  {p.description}
+                </p>
+
+                <div className={`flex items-baseline gap-1 mb-8 pb-8 border-b ${p.popular ? "border-slate-800" : "border-slate-100"}`}>
+                  {p.customPricing ? (
+                    <span className={`text-5xl font-black tracking-tight ${p.popular ? "text-white" : "text-slate-900"}`}>
+                      Custom
                     </span>
+                  ) : (
+                    <>
+                      {((billing === "monthly" && p.originalMonthlyPrice) || (billing === "annual" && p.originalAnnualPrice)) && (
+                        <div className="flex items-center text-slate-400 mr-2 font-extrabold text-xl relative">
+                          ₹{billing === "annual" ? p.originalAnnualPrice?.toLocaleString("en-IN") : p.originalMonthlyPrice?.toLocaleString("en-IN")}
+                          <div className="absolute inset-0 w-[110%] -left-[5%] h-[2.5px] bg-red-500 top-1/2 -rotate-12 rounded-full"></div>
+                        </div>
+                      )}
+                      <span className={`text-lg font-bold text-slate-400`}>₹</span>
+                      <span className={`text-5xl font-black tracking-tight ${p.popular ? "text-white" : "text-slate-900"}`}>
+                        {billing === "annual" ? p.annualPrice.toLocaleString("en-IN") : p.monthlyPrice.toLocaleString("en-IN")}
+                      </span>
+                      <span className={`text-sm font-medium text-slate-400`}>/mo</span>
+                    </>
                   )}
                 </div>
-                <ul className="space-y-3 mb-8 flex-1">
+
+                {billing === "annual" && !p.customPricing && (
+                  <p className={`text-xs mb-6 -mt-4 font-bold ${p.popular ? "text-emerald-400" : "text-emerald-600"}`}>
+                    Billed ₹{(p.annualPrice * 12).toLocaleString("en-IN")}/year
+                  </p>
+                )}
+
+                {billing === "annual" && p.customPricing && (
+                  <div className="h-6 mb-6 -mt-4" />
+                )}
+
+                <ul className="space-y-4 mb-10 flex-1">
                   {p.features.map((f, fi) => (
-                    <li key={fi} className="flex items-center gap-2.5 text-sm">
-                      <Check className={`w-4 h-4 flex-shrink-0 ${p.popular ? "text-emerald-400" : "text-emerald-600"}`} />
-                      <span className={p.popular ? "text-slate-300" : "text-slate-600"}>{f}</span>
+                    <li key={fi} className="flex items-center gap-3 text-sm">
+                      {f === "PropDesk Copilot AI" ? (
+                        <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${p.popular ? 'bg-emerald-500/20 text-emerald-450' : 'bg-emerald-50 text-emerald-650'}`}>
+                          <Bot className="w-3 h-3" />
+                        </div>
+                      ) : (
+                        <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${p.popular ? 'bg-emerald-500/20' : 'bg-emerald-100'}`}>
+                          <Check className={`w-3 h-3 ${p.popular ? "text-emerald-400" : "text-emerald-600"}`} strokeWidth={3} />
+                        </div>
+                      )}
+                      <span className={`font-medium ${p.popular ? "text-slate-300" : "text-slate-650"} flex items-center gap-2`}>
+                        {f}
+                        {f === "PropDesk Copilot AI" && (
+                          <span className={`text-[8px] px-1.5 py-0.5 rounded-full uppercase tracking-widest font-extrabold ${p.popular ? "bg-gradient-to-r from-emerald-400 to-teal-400 text-white shadow-sm" : "bg-emerald-100 text-emerald-700"}`}>
+                            New
+                          </span>
+                        )}
+                      </span>
                     </li>
                   ))}
                 </ul>
+
                 <Link
                   href="/contact"
-                  className={`w-full text-center py-3 rounded-xl font-bold text-sm transition-all ${p.popular
-                      ? "bg-emerald-500 hover:bg-emerald-400 text-white"
-                      : "bg-slate-50 hover:bg-slate-100 text-slate-900 border border-slate-200"
+                  className={`w-full text-center py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-2 ${p.popular
+                    ? "bg-emerald-500 hover:bg-emerald-450 text-white shadow-lg shadow-emerald-500/25 hover:-translate-y-0.5"
+                    : "bg-slate-50 hover:bg-slate-100 text-slate-900 border border-slate-200 hover:-translate-y-0.5"
                     }`}
                 >
-                  Start 14-Day Free Trial
+                  {p.customPricing ? "Contact Sales" : "Start 14-Day Free Trial"} <ArrowRight className="w-4 h-4" />
                 </Link>
-                <p className={`text-center text-[11px] mt-2 ${p.popular ? "text-slate-500" : "text-slate-400"}`}>
-                  No credit card required
+
+                <p className={`text-center text-xs mt-4 ${p.popular ? "text-slate-400" : "text-slate-550"}`}>
+                  {p.customPricing ? "Custom setup & onboarding included" : "Cancel anytime. No credit card required."}
                 </p>
               </motion.div>
             ))}
@@ -808,10 +876,10 @@ export default function Home() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-center mt-10"
+            className="text-center mt-12"
           >
-            <Link href="/pricing" className="text-emerald-600 font-semibold hover:text-emerald-700 text-sm flex items-center gap-1.5 justify-center">
-              See full feature comparison <ArrowRight className="w-4 h-4" />
+            <Link href="/pricing" className="text-emerald-650 font-bold hover:text-emerald-700 text-sm flex items-center gap-1.5 justify-center group hover:underline">
+              See full feature comparison <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
         </div>
