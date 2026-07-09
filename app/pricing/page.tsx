@@ -20,55 +20,60 @@ const plans = [
   {
     name: "Starter",
     badge: "Solo Brokers",
-    monthlyPrice: 999,
-    annualPrice: 799,
+    originalMonthlyPrice: 999,
+    monthlyPrice: 499,
+    originalAnnualPrice: 999,
+    annualPrice: 399,
     customPricing: false,
     description: "Great for solo brokers moving away from diaries and Excel.",
     features: [
+      "PropDesk Copilot AI",
       "1 Admin Account",
-      "Up to 500 property listings",
-      "2-Sec Smart Matching",
+      "Unlimited property listings",
+      "Unlimited leads",
       "WhatsApp & PDF sharing",
       "Broker Management",
-      "Excel Data Export",
       "Daily reminders",
-      "Add upto 3 property imgs"
-
     ],
-    notIncluded: ["Sub-agent accounts", "Team Activity Log", "Custom Branding"],
+    notIncluded: ["Team Activity Log", "Custom Branding"],
     cta: "Start Free Trial",
     popular: false,
   },
   {
     name: "Professional",
     badge: "Growing Agencies",
-    monthlyPrice: 1999,
-    annualPrice: 1599,
+    originalMonthlyPrice: 1999,
+    monthlyPrice: 1499,
+    originalAnnualPrice: 1999,
+    annualPrice: 1199,
     customPricing: false,
     description: "Perfect for small teams managing multiple agents and clients.",
     features: [
       "PropDesk Copilot AI",
-      "3 Agent Accounts included",
-      "+ ₹799/mo per additional agent",
-      "Up to 1500 property listings",
-      "Booking System",
+      "4 Agent Accounts included",
+      "+ ₹449/mo per additional agent",
+      "Unlimited property listings",
+      "Unlimited leads",
       "Automated Follow-up Reminders",
       "Real-Time Team Activity Log",
-
     ],
-    notIncluded: ["Unlimited listings", "Custom Agency Logo"],
+    notIncluded: ["Custom Agency Logo"],
     cta: "Start Free Trial",
     popular: true,
   },
   {
     name: "Agency",
     badge: "Enterprise Firms",
+    originalMonthlyPrice: 0,
     monthlyPrice: 0,
+    originalAnnualPrice: 0,
     annualPrice: 0,
     customPricing: true,
     description: "For large property dealers, developer firms, and franchises.",
     features: [
+      "PropDesk Copilot AI",
       "Unlimited property listings",
+      "Unlimited leads",
       "Unlimited agent accounts",
       "Custom Agency Logo Branding",
       "Dedicated account manager",
@@ -200,6 +205,13 @@ export default function PricingPage() {
                     </span>
                   ) : (
                     <>
+                      {/* Original Price Strikethrough */}
+                      {((billing === "monthly" && plan.originalMonthlyPrice) || (billing === "annual" && plan.originalAnnualPrice)) && (
+                        <div className="flex items-center text-slate-400 mr-2 font-extrabold text-xl relative">
+                          ₹{billing === "annual" ? plan.originalAnnualPrice?.toLocaleString("en-IN") : plan.originalMonthlyPrice?.toLocaleString("en-IN")}
+                          <div className="absolute inset-0 w-[110%] -left-[5%] h-[3px] bg-red-500 top-1/2 -rotate-12 shadow-sm rounded-full mix-blend-multiply"></div>
+                        </div>
+                      )}
                       <span className={`text-sm font-bold text-slate-400`}>₹</span>
                       <span className={`text-5xl font-extrabold font-display text-slate-900`}>
                         {billing === "annual" ? plan.annualPrice.toLocaleString("en-IN") : plan.monthlyPrice.toLocaleString("en-IN")}
@@ -232,7 +244,7 @@ export default function PricingPage() {
                         )}
                         <span className={feature === "PropDesk Copilot AI" ? "font-bold flex items-center gap-2" : ""}>
                           {feature}
-                          {feature === "PropDesk Copilot AI" && <span className={`text-[9px] px-2 py-0.5 rounded-full uppercase tracking-widest font-bold ${plan.popular ? "bg-emerald-500 text-white" : "bg-emerald-100 text-emerald-700"}`}>New</span>}
+                          {feature === "PropDesk Copilot AI" && <span className={`text-[9px] px-2 py-0.5 rounded-full uppercase tracking-widest font-bold ${plan.popular ? "bg-gradient-to-r from-emerald-400 to-teal-400 text-white shadow-sm" : "bg-emerald-100 text-emerald-700"}`}>New</span>}
                         </span>
                       </li>
                     ))}
@@ -248,8 +260,8 @@ export default function PricingPage() {
                 <Link
                   href="/contact"
                   className={`relative z-10 w-full text-center py-4 rounded-xl font-bold text-sm transition-all mt-8 ${plan.popular
-                    ? "bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-600/30 ring-2 ring-emerald-600 ring-offset-2 ring-offset-white"
-                    : "bg-slate-900 hover:bg-slate-800 text-white"
+                    ? "bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-white shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:shadow-[0_0_30px_rgba(16,185,129,0.6)] ring-1 ring-white/20 scale-[1.02]"
+                    : "bg-slate-900 hover:bg-slate-800 text-white shadow-xl shadow-slate-900/10"
                     }`}
                 >
                   {plan.cta}
