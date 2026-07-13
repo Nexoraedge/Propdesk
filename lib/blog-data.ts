@@ -19,6 +19,50 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "see-propdesk-in-action-demo",
+    title: "See PropDesk in Action: 3-Minute Platform Demo",
+    excerpt: "Watch exactly how PropDesk's AI-powered CRM can help you auto-match buyers, manage your pipeline, and close deals faster in this quick 3-minute video walkthrough.",
+    category: "Product Guide",
+    tags: ["Demo", "Product Update", "CRM", "PropTech"],
+    readTime: 3,
+    publishedAt: "2026-07-13",
+    author: { name: "Hardik Jain", role: "Founder, PropDesk", initials: "HJ" },
+    metaTitle: "PropDesk 3-Minute Demo | AI Real Estate CRM in Action",
+    metaDescription: "Watch a quick 3-minute demo of PropDesk to see how our AI property matching and lead management system works.",
+    content: `
+![PropDesk Demo Thumbnail](/images/blog/thumbnail.png)
+
+## Seeing is Believing
+
+We talk a lot about how PropDesk is the fastest, smartest real estate CRM on the market. We talk about our AI matching engine, our WhatsApp integrations, and our bank-grade security.
+
+But nothing beats seeing it in action.
+
+We've put together a lightning-fast, 3-minute demo video that walks you through exactly what your day-to-day workflow looks like inside PropDesk. 
+
+## Watch the Demo
+
+Grab a cup of coffee and see how PropDesk can eliminate your manual Excel sheets and diaries forever:
+
+@[youtube](xR59mIv2SBc)
+
+## What You Will See
+
+In this short walkthrough, we cover the most important features that will save you hours every single day:
+
+* **The Agent Dashboard:** How to get a bird's-eye view of your entire business, from active clients to hot matching opportunities.
+* **Smart Matching in Action:** Watch the AI instantly connect a new lead's requirements with your existing property inventory in milliseconds.
+* **Lead Pipeline CRM:** How to track every conversation, set follow-up reminders, and ensure no deal ever slips through the cracks.
+* **WhatsApp PDF Generation:** See how easy it is to share professional property brochures with your clients directly on WhatsApp with just one click.
+
+## Ready to Upgrade?
+
+If you like what you see in the video, you don't have to wait. You can experience the platform for yourself right now.
+
+[Start your 14-day free trial today](/signup) and join the hundreds of modern Indian brokers who are closing more deals with PropDesk.
+    `,
+  },
+  {
     slug: "stop-losing-leads-whatsapp-ai-real-estate",
     title: "Stop Losing Real Estate Leads on WhatsApp: How AI is Changing the Game",
     excerpt: "If you are a real estate broker relying on WhatsApp and Excel to manage hundreds of leads, you are losing money every day. Here is how AI is fixing this massive problem.",

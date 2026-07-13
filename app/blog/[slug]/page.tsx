@@ -30,6 +30,20 @@ function renderMarkdown(content: string): React.ReactNode[] {
           </div>
         );
       }
+    } else if (line.startsWith("@[youtube](") && line.endsWith(")")) {
+      const videoId = line.slice(11, -1);
+      elements.push(
+        <div key={i} className="my-10 rounded-2xl overflow-hidden shadow-2xl shadow-slate-900/20 border border-slate-100 relative w-full bg-slate-900" style={{ paddingBottom: '56.25%' }}>
+          <iframe
+            src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="absolute inset-0 w-full h-full"
+            style={{ border: 'none' }}
+          />
+        </div>
+      );
     } else if (line.startsWith("## ")) {
       elements.push(
         <h2 key={i} className="text-2xl md:text-3xl font-extrabold text-slate-900 font-display mt-12 mb-5 leading-snug">
