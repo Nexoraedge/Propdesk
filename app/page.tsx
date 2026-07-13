@@ -321,7 +321,7 @@ export default function Home() {
               <Link href="/contact" className="btn-12">
                 <span>Start 14-Day Free Trial</span>
               </Link>
-              <Link href="https://youtu.be/FEU5vRmuIKw" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 bg-white text-slate-700 font-bold text-lg px-8 py-4 rounded-2xl border-2 border-slate-100 hover:border-slate-200 hover:bg-slate-50 transition-all">
+              <Link href="https://youtu.be/xR59mIv2SBc" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 bg-white text-slate-700 font-bold text-lg px-8 py-4 rounded-2xl border-2 border-slate-100 hover:border-slate-200 hover:bg-slate-50 transition-all">
                 <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Play className="w-4 h-4 fill-slate-700" />
                 </div>
