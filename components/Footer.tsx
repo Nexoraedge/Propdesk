@@ -162,32 +162,44 @@ export default function Footer() {
 
       {/* Bottom Legal & Credit Bar */}
       <div className="relative border-t border-white/10 bg-slate-900/50 backdrop-blur-sm z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col lg:flex-row items-center justify-between gap-6 text-sm text-slate-400">
-
-          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
-            <span>© {currentYear} PropDesk</span>
-            <span className="hidden sm:inline text-slate-600">|</span>
-            <span className="font-medium text-slate-300">Made with ❤️ in India 🇮🇳</span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col xl:flex-row items-center justify-between gap-y-6 gap-x-8 text-sm text-slate-400">
+          
+          {/* Left Side: Copyright & Certifications */}
+          <div className="flex flex-wrap justify-center xl:justify-start items-center gap-x-4 gap-y-3">
+            <span className="font-semibold text-slate-300 whitespace-nowrap">© {currentYear} PropDesk</span>
+            <span className="hidden md:inline text-slate-700">|</span>
+            <span className="font-medium text-slate-400 whitespace-nowrap">Made with ❤️ in India 🇮🇳</span>
+            <span className="hidden md:inline text-slate-700">|</span>
+            <div className="flex items-center gap-2 whitespace-nowrap" title="Recognized by Govt. of India (MSME)">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
+              <span className="font-medium text-slate-300 text-xs sm:text-sm">
+                Govt. Registered MSME <span className="text-slate-500 ml-1">({`UDYAM-RJ-17-0630850`})</span>
+              </span>
+            </div>
           </div>
 
-          <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
-            <Link href="/privacy" className="hover:text-emerald-400 transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-emerald-400 transition-colors">Terms of Service</Link>
-            <Link href="/disclaimer" className="hover:text-emerald-400 transition-colors">RERA Disclaimer</Link>
-          </div>
+          {/* Right Side: Links & Credits */}
+          <div className="flex flex-wrap justify-center xl:justify-end items-center gap-x-6 gap-y-4">
+            <div className="flex flex-wrap justify-center items-center gap-x-4 sm:gap-6">
+              <Link href="/privacy" className="hover:text-emerald-400 transition-colors whitespace-nowrap">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-emerald-400 transition-colors whitespace-nowrap">Terms of Service</Link>
+              <Link href="/disclaimer" className="hover:text-emerald-400 transition-colors whitespace-nowrap">RERA Disclaimer</Link>
+            </div>
 
-          {/* Designer Credit */}
-          <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/5">
-            <span>Designed and built by</span>
-            <a
-              href="https://www.youtube.com/@Dhonidev-ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-emerald-400 font-bold hover:text-emerald-300 hover:underline transition-all"
-              title="Visit DhoniDev-Ai on YouTube"
-            >
-              DhoniDev-Ai
-            </a>
+            <div className="hidden sm:block w-px h-4 bg-slate-700"></div>
+
+            <div className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-full border border-white/5 whitespace-nowrap text-[13px]">
+              <span className="text-slate-400">Designed by</span>
+              <a
+                href="https://www.youtube.com/@Dhonidev-ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-emerald-400 font-bold hover:text-emerald-300 transition-all"
+                title="Visit DhoniDev-Ai on YouTube"
+              >
+                DhoniDev-Ai
+              </a>
+            </div>
           </div>
 
         </div>
