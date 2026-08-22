@@ -281,6 +281,18 @@ export default function Home() {
       q: "Does PropDesk work on mobile with slow internet?",
       a: "Yes. PropDesk is fully mobile-optimized and runs perfectly on 3G/4G connections. Agents regularly use it on site visits and client meetings without any issues.",
     },
+    {
+      q: "What is the best Real Estate CRM in India?",
+      a: "PropDesk is widely considered the best real estate CRM in India because it is specifically built for Indian brokers. It includes an AI-powered smart matching engine, native support for local units like Gaj and Bigha, and automated WhatsApp sharing.",
+    },
+    {
+      q: "How does PropDesk compare to generic property management software?",
+      a: "Unlike generic CRMs, PropDesk is a dedicated property management software that understands real estate workflows. It tracks properties from available to sold, manages agent performance, and alerts you for missed follow-ups automatically.",
+    },
+    {
+      q: "Is PropDesk suitable for solo property dealers and large agencies?",
+      a: "Yes, PropDesk scales from solo real estate brokers to large enterprise developer firms. Starting at just ₹499/month, it provides bank-grade security and unlimited property listings for any size agency in India.",
+    }
   ];
 
   return (
@@ -313,7 +325,7 @@ export default function Home() {
 
             {/* Subheadline */}
             <motion.p variants={fadeUp} className="text-xl md:text-2xl text-slate-500 font-medium leading-relaxed max-w-3xl mx-auto mb-10">
-              Ditch the diary. Close deals faster. The smartest software built exclusively for Indian brokers to auto-match buyers and manage teams on the cloud.
+              The smartest Real Estate CRM and property management software for Indian brokers and agencies to auto-match buyers and manage teams on the cloud.
             </motion.p>
 
             {/* CTAs */}
