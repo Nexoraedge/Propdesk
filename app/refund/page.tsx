@@ -47,7 +47,7 @@ export default function RefundPolicyPage() {
                 We believe in providing ultimate flexibility and absolute transparency for your business. You hold full control over your PropDesk journey. 
               </p>
               <div className="bg-emerald-50/50 border border-emerald-100 rounded-2xl p-6 text-emerald-950 font-medium">
-                You can cancel your PropDesk subscription at any time, directly from your administrative dashboard with zero friction. Your cancellation will take effect flawlessly at the end of your current paid billing cycle. Until then, your access remains fully active.
+                You can cancel your PropDesk subscription at any time, directly from your administrative dashboard with zero friction. Your cancellation will take effect flawlessly at the end of your current paid billing cycle. Until then, your access remains fully active. There are absolutely no cancellation fees or hidden charges.
               </div>
             </div>
           </section>
@@ -65,10 +65,10 @@ export default function RefundPolicyPage() {
             </div>
             <div className="pl-13 md:pl-13 text-lg leading-relaxed text-slate-600">
               <p className="mb-4">
-                Because PropDesk is a premium platform delivering immediate access to cutting-edge digital software, cloud infrastructure, and proprietary CRM services, all transactions are strictly final.
+                Because PropDesk is a premium platform delivering immediate access to cutting-edge digital software, cloud infrastructure, and proprietary CRM services, all transactions are strictly final. Return, replacement, and exchange requests are strictly not applicable for our digital goods and services.
               </p>
               <div className="bg-amber-50/50 border border-amber-100 rounded-2xl p-6 text-amber-950 font-medium">
-                We do not offer refunds, partial or full, for any subscription payments or setup fees that have already been processed. Once a billing cycle commences, the value of the platform is unlocked and rendered non-refundable.
+                We do not offer refunds, partial or full, for any subscription payments or setup fees that have already been processed. Once a billing cycle commences, the value of the platform is unlocked and rendered non-refundable. Since refunds are not offered, there are no applicable refund processing timeframes.
               </div>
               <p className="mt-4 text-sm text-slate-500">
                 We highly encourage utilizing our free trial periods (when available) to ensure PropDesk perfectly aligns with your agency's operational needs before committing to a paid subscription.
