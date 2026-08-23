@@ -116,9 +116,19 @@ export default function Footer() {
           <div className="space-y-6">
             <h3 className="text-xs font-bold text-slate-300 uppercase tracking-widest font-display">Get in Touch</h3>
             <address className="not-italic space-y-4">
-              <a href="tel:+917208850778" className="flex items-center gap-3.5 group">
+              <a href="https://wa.me/917208850778?text=Hi%20PropDesk%20Support" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3.5 group">
                 <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 group-hover:text-emerald-450 group-hover:bg-emerald-500/10 group-hover:border-emerald-500/20 transition-all duration-200 shrink-0">
                   <Phone className="w-4 h-4 text-emerald-400" />
+                </div>
+                <div>
+                  <span className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider">WhatsApp Support (Fastest)</span>
+                  <span className="block text-sm font-semibold text-slate-350 group-hover:text-white transition-colors">+91 72088 50778</span>
+                </div>
+              </a>
+
+              <a href="tel:+918271310911" className="flex items-center gap-3.5 group">
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 group-hover:text-emerald-450 group-hover:bg-emerald-500/10 group-hover:border-emerald-500/20 transition-all duration-200 shrink-0">
+                  <Phone className="w-4 h-4 text-slate-400 group-hover:text-emerald-400 transition-colors" />
                 </div>
                 <div>
                   <span className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider">Call Support</span>
@@ -184,6 +194,7 @@ export default function Footer() {
               <Link href="/privacy" className="hover:text-emerald-400 transition-colors whitespace-nowrap">Privacy Policy</Link>
               <Link href="/terms" className="hover:text-emerald-400 transition-colors whitespace-nowrap">Terms of Service</Link>
               <Link href="/disclaimer" className="hover:text-emerald-400 transition-colors whitespace-nowrap">RERA Disclaimer</Link>
+              <Link href="/refund" className="hover:text-emerald-400 transition-colors whitespace-nowrap">Refund Policy</Link>
             </div>
 
             <div className="hidden sm:block w-px h-4 bg-slate-700"></div>
