@@ -32,14 +32,14 @@ export default function TermsPage() {
       {/* Content */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="bg-white border border-slate-200 rounded-3xl p-6 md:p-12 shadow-sm space-y-8">
-          
+
           <section className="space-y-4">
             <h2 className="text-xl font-bold text-slate-900 font-display flex items-center gap-2">
               <span className="w-1.5 h-6 bg-emerald-500 rounded-full" />
               1. Acceptance of Terms
             </h2>
             <p className="leading-relaxed">
-              This website is owned and operated by <strong>Hardik Jain</strong>. By registering for, accessing, or using the website at <Link href="/" className="text-emerald-650 hover:underline font-medium">propdesk.in</Link>, its subscription services, sub-agent tools, and any related applications, you agree to comply with and be bound by these Terms of Service. If you do not agree to these terms, you must immediately cease all access and utilization.
+              This website is owned and operated by <strong>Hardik Jain</strong>. By registering for, accessing, or using the website at <Link href="/" className="text-emerald-650 hover:underline font-medium">thepropdesk.in</Link>, its subscription services, sub-agent tools, and any related applications, you agree to comply with and be bound by these Terms of Service. If you do not agree to these terms, you must immediately cease all access and utilization.
             </p>
           </section>
 
