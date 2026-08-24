@@ -99,8 +99,8 @@ const faqs = [
     a: "Yes, your data is yours. PropDesk provides a one-click Microsoft Excel export feature so you can download your entire inventory and client contacts list whenever you want.",
   },
   {
-    q: "Do you offer discounts for annual billing?",
-    a: "Yes — pay annually and save 20% compared to monthly billing. Annual plans are billed upfront for the full year.",
+    q: "Do you offer discounts for 6-month billing?",
+    a: "Yes — choose the 6-month plan and save 20% compared to monthly billing. 6-month plans are billed upfront.",
   },
   {
     q: "What payment methods are accepted?",
@@ -148,7 +148,7 @@ export default function PricingPage() {
                 />
               </button>
               <span className={`text-sm font-semibold flex items-center gap-2 ${billing === "annual" ? "text-slate-900" : "text-slate-400"}`}>
-                Annual
+                6 Months
                 <span className="bg-emerald-100 border border-emerald-200 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Save 20%</span>
               </span>
             </motion.div>
@@ -222,7 +222,7 @@ export default function PricingPage() {
 
                 {billing === "annual" && !plan.customPricing && (
                   <p className={`text-xs mb-6 -mt-4 font-bold ${plan.popular ? "text-emerald-400" : "text-emerald-600"}`}>
-                    Billed ₹{(plan.annualPrice * 12).toLocaleString("en-IN")}/year
+                    Billed ₹{(plan.annualPrice * 6).toLocaleString("en-IN")} for 6 months
                   </p>
                 )}
 

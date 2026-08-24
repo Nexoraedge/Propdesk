@@ -768,8 +768,8 @@ export default function Home() {
               />
             </button>
             <span className={`text-sm font-bold flex items-center gap-2 ${billing === "annual" ? "text-slate-900" : "text-slate-400"}`}>
-              Annually
-              <span className="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">
+              6 Months
+              <span className="bg-emerald-100 text-emerald-700 text-[10px] uppercase tracking-wider py-0.5 px-2 rounded-full font-bold">
                 Save 20%
               </span>
             </span>
@@ -835,7 +835,7 @@ export default function Home() {
 
                 {billing === "annual" && !p.customPricing && (
                   <p className={`text-xs mb-6 -mt-4 font-bold ${p.popular ? "text-emerald-400" : "text-emerald-600"}`}>
-                    Billed ₹{(p.annualPrice * 12).toLocaleString("en-IN")}/year
+                    Billed ₹{(p.annualPrice * 6).toLocaleString("en-IN")} for 6 months
                   </p>
                 )}
 
