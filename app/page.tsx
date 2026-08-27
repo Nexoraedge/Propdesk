@@ -316,7 +316,7 @@ export default function Home() {
           >
 
             {/* Headline */}
-            <motion.h1 variants={fadeUp} className="text-6xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 mt-4 font-display leading-[1.05] tracking-tight mb-8 text-balance relative">
+            <motion.h1 variants={fadeUp} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 mt-4 font-display leading-[1.05] tracking-tight mb-8 text-balance relative">
               <span className="block text-slate-800">Best Real Estate CRM &</span>
               <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-500 to-emerald-400 pb-2">
                 Property Management Software
@@ -324,16 +324,16 @@ export default function Home() {
             </motion.h1>
 
             {/* Subheadline */}
-            <motion.p variants={fadeUp} className="text-xl md:text-2xl text-slate-500 font-medium leading-relaxed max-w-3xl mx-auto mb-10">
+            <motion.p variants={fadeUp} className="text-lg sm:text-xl md:text-2xl text-slate-500 font-medium leading-relaxed max-w-3xl mx-auto mb-10 px-2 sm:px-0">
               The smartest Real Estate CRM and property management software for Indian brokers and agencies to auto-match buyers and manage teams on the cloud.
             </motion.p>
 
             {/* CTAs */}
-            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-              <Link href="/contact" className="btn-12">
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 mb-10 px-4 sm:px-0">
+              <Link href="/contact" className="btn-12 w-full sm:w-auto flex justify-center">
                 <span>Start 14-Day Free Trial</span>
               </Link>
-              <Link href="https://youtu.be/xR59mIv2SBc" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 bg-white text-slate-700 font-bold text-lg px-8 py-4 rounded-2xl border-2 border-slate-100 hover:border-slate-200 hover:bg-slate-50 transition-all">
+              <Link href="https://youtu.be/xR59mIv2SBc" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex justify-center items-center gap-2 bg-white text-slate-700 font-bold text-lg px-8 py-4 rounded-2xl border-2 border-slate-100 hover:border-slate-200 hover:bg-slate-50 transition-all">
                 <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Play className="w-4 h-4 fill-slate-700" />
                 </div>
@@ -369,7 +369,7 @@ export default function Home() {
             variants={fadeIn}
             initial="hidden"
             animate="show"
-            className="relative max-w-5xl mx-auto"
+            className="relative max-w-5xl mx-auto px-2 sm:px-0"
           >
             {/* Glow halo */}
             <div className="absolute -inset-10 bg-gradient-to-b from-emerald-400/20 to-transparent rounded-[3rem] blur-3xl -z-10" />
@@ -423,7 +423,7 @@ export default function Home() {
                 Introducing PropDesk Copilot
               </div>
 
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium font-playfair tracking-tight text-slate-900 leading-[1.15]">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium font-playfair tracking-tight text-slate-900 leading-[1.15]">
                 Your personal <br />
                 <span className="text-[#051a67] italic font-light">Real Estate AI</span>
               </h2>
