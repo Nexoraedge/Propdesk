@@ -261,7 +261,7 @@ export default function CheckoutPage() {
             <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex items-center gap-4">
               {agencyData.logo_url ? (
                 <div className="relative w-14 h-14 rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 shrink-0">
-                  <Image src={agencyData.logo_url} alt={agencyData.name} fill className="object-cover" />
+                  <img src={agencyData.logo_url} alt={agencyData.name} className="absolute inset-0 w-full h-full object-cover" />
                 </div>
               ) : (
                 <div className="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-400 shrink-0 border border-slate-200">
@@ -273,7 +273,6 @@ export default function CheckoutPage() {
                   <CheckCircle2 className="w-3.5 h-3.5" /> Billing For
                 </p>
                 <p className="text-lg font-extrabold text-slate-900 truncate">{agencyData.name}</p>
-                <p className="text-sm text-slate-500 font-medium truncate">{agencyData.contact_phone || "Verified Agency"}</p>
               </div>
             </div>
 
