@@ -88,7 +88,7 @@ export default function Navbar() {
                 transition={{ type: "spring", stiffness: 400, damping: 20 }}
               >
                 <Link
-                  href="/contact"
+                  href="/signup"
                   className="inline-flex items-center gap-2 px-5 py-2.5 text-[14px] font-bold text-white bg-slate-900 hover:bg-slate-800 rounded-xl transition-colors duration-150 shadow-md shadow-slate-900/10 hover:shadow-lg hover:shadow-slate-900/20 font-display"
                 >
                   Start Free Trial

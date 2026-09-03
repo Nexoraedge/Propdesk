@@ -33,7 +33,7 @@ export default function CTASection() {
           {/* Dual Action Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto mb-10">
             <Link
-              href="/contact"
+              href="/signup"
               className="flex w-full sm:w-auto items-center justify-center gap-2 px-8 py-4 text-base font-bold text-white bg-slate-900 hover:bg-slate-800 active:scale-95 transition-all duration-205 rounded-xl shadow-sm font-display cursor-pointer"
             >
               <Zap className="w-4 h-4 fill-white" />

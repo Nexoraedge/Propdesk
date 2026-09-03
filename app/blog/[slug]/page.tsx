@@ -201,7 +201,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
             <p className="text-slate-400 mb-6 text-base">
               No credit card required. Full access to all features. Setup in under 5 minutes.
             </p>
-            <Link href="/contact" className="btn-primary px-8 py-4 inline-flex">
+            <Link href="/signup" className="btn-primary px-8 py-4 inline-flex">
               Start Free Trial <ArrowRight className="w-5 h-5" />
             </Link>
           </div>

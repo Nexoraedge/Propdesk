@@ -109,7 +109,7 @@ export default function HeroSection() {
 
                         {/* CTA Buttons */}
                         <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
-                            <Link href="/contact" className="w-full sm:w-auto px-8 py-4 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-2xl transition-all shadow-xl shadow-slate-900/20 flex items-center justify-center gap-2 hover:-translate-y-0.5">
+                            <Link href="/signup" className="w-full sm:w-auto px-8 py-4 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-2xl transition-all shadow-xl shadow-slate-900/20 flex items-center justify-center gap-2 hover:-translate-y-0.5">
                                 Start 14-Day Free Trial
                                 <ArrowRight className="w-4 h-4" />
                             </Link>

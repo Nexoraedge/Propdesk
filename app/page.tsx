@@ -134,6 +134,7 @@ function FeatureBlock({
 
 // ─── Main Page ────────────────────────────────────────────────────────────────
 export default function Home() {
+
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [billing, setBilling] = useState<"monthly" | "annual">("monthly");
 
@@ -298,6 +299,7 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
 
+
       {/* ═══ HERO ══════════════════════════════════════════════════════════════ */}
       <section className="relative min-h-screen flex flex-col justify-center pt-32 pb-20 bg-[#fafafa] overflow-hidden">
         {/* Abstract Mesh Background */}
@@ -330,7 +332,7 @@ export default function Home() {
 
             {/* CTAs */}
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 mb-10 px-4 sm:px-0">
-              <Link href="/contact" className="btn-12 w-full sm:w-auto flex justify-center">
+              <Link href="/signup" className="btn-12 w-full sm:w-auto flex justify-center">
                 <span>Start 14-Day Free Trial</span>
               </Link>
               <Link href="https://youtu.be/xR59mIv2SBc" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex justify-center items-center gap-2 bg-white text-slate-700 font-bold text-lg px-8 py-4 rounded-2xl border-2 border-slate-100 hover:border-slate-200 hover:bg-slate-50 transition-all">
@@ -867,12 +869,10 @@ export default function Home() {
                   ))}
                 </ul>
 
-                <Link
-                  href="/contact"
-                  className={`w-full text-center py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-2 ${p.popular
-                    ? "bg-emerald-500 hover:bg-emerald-450 text-white shadow-lg shadow-emerald-500/25 hover:-translate-y-0.5"
-                    : "bg-slate-50 hover:bg-slate-100 text-slate-900 border border-slate-200 hover:-translate-y-0.5"
-                    }`}
+                <Link href="/signup" className={`w-full text-center py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-2 ${p.popular
+                  ? "bg-emerald-500 hover:bg-emerald-450 text-white shadow-lg shadow-emerald-500/25 hover:-translate-y-0.5"
+                  : "bg-slate-50 hover:bg-slate-100 text-slate-900 border border-slate-200 hover:-translate-y-0.5"
+                  }`}
                 >
                   {p.customPricing ? "Contact Sales" : "Start 14-Day Free Trial"} <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -965,7 +965,7 @@ export default function Home() {
               Join the smart brokers who use PropDesk to manage their property inventory, automate lead follow-ups, and close more deals. Grab our 50% off launch offer today.
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-              <Link href="/contact" className="btn-primary text-base px-8 py-4">
+              <Link href="/signup" className="btn-primary text-base px-8 py-4">
                 Start 14-Day Free Trial — It's Free
                 <ArrowRight className="w-5 h-5" />
               </Link>

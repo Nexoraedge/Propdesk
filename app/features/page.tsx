@@ -150,7 +150,7 @@ export default function FeaturesPage() {
               PropDesk is the all-in-one property management software and CRM system built specifically for Indian brokers, independent agents, and growing real estate agencies.
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="btn-primary px-8 py-4">
+              <Link href="/signup" className="btn-primary px-8 py-4">
                 Start 14-Day Free Trial <ArrowRight className="w-5 h-5" />
               </Link>
               <Link href="/pricing" className="btn-secondary px-8 py-4">
@@ -220,7 +220,7 @@ export default function FeaturesPage() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/contact" className="btn-primary inline-flex mt-2">
+                <Link href="/signup" className="btn-primary inline-flex mt-2">
                   Try This Free <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -339,7 +339,7 @@ export default function FeaturesPage() {
             viewport={{ once: true }}
             className="text-center mt-10"
           >
-            <Link href="/contact" className="btn-primary px-8 py-4">
+            <Link href="/signup" className="btn-primary px-8 py-4">
               Switch to PropDesk — Free for 14 Days <ArrowRight className="w-5 h-5" />
             </Link>
           </motion.div>

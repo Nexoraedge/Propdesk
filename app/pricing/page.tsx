@@ -263,7 +263,7 @@ export default function PricingPage() {
                 </div>
 
                 <Link
-                  href="/contact"
+                  href="/signup"
                   className={`w-full text-center py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-2 mt-8 ${plan.popular
                     ? "bg-emerald-500 hover:bg-emerald-450 text-white shadow-lg shadow-emerald-500/25 hover:-translate-y-0.5"
                     : "bg-slate-50 hover:bg-slate-100 text-slate-900 border border-slate-200 hover:-translate-y-0.5"
@@ -350,7 +350,7 @@ export default function PricingPage() {
             viewport={{ once: true }}
             className="text-center mt-12"
           >
-            <Link href="/contact" className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-4 rounded-xl transition-colors shadow-lg shadow-emerald-600/20">
+            <Link href="/signup" className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-4 rounded-xl transition-colors shadow-lg shadow-emerald-600/20">
               Start Your 14-Day Free Trial <ArrowRight className="w-5 h-5" />
             </Link>
             <p className="text-slate-400 text-sm mt-3">No credit card · No risk · Cancel anytime</p>

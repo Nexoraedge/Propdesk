@@ -296,7 +296,7 @@ export default function BlogPage() {
                 </div>
 
                 <div className="space-y-4 mt-4">
-                  <Link href="/contact" className="w-full flex items-center justify-center gap-3 px-8 py-4.5 bg-white hover:bg-slate-50 text-slate-900 font-extrabold rounded-2xl transition-all hover:scale-[1.02] shadow-xl group">
+                  <Link href="/signup" className="w-full flex items-center justify-center gap-3 px-8 py-4.5 bg-white hover:bg-slate-50 text-slate-900 font-extrabold rounded-2xl transition-all hover:scale-[1.02] shadow-xl group">
                     Start Free Trial Now
                     <ArrowRight className="w-5 h-5 text-emerald-600 group-hover:translate-x-1 transition-transform" />
                   </Link>
