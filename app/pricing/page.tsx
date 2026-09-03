@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, Zap, Star, Bot } from "lucide-react";
@@ -108,8 +108,15 @@ const faqs = [
   },
 ];
 
-export default function PricingPage({ searchParams }: { searchParams?: { agencyId?: string } }) {
-  const agencyId = searchParams?.agencyId;
+export default function PricingPage() {
+  const [agencyId, setAgencyId] = useState<string | null>(null);
+  
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      setAgencyId(params.get("agencyId"));
+    }
+  }, []);
   const [billing, setBilling] = useState<BillingPeriod>("monthly");
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 

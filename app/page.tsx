@@ -229,7 +229,7 @@ export default function Home() {
       features: [
         "PropDesk Copilot AI",
         "4 Agent Accounts included",
-        "+ ₹449/mo per additional agent",
+        "+ ₹400/mo per additional agent",
         "Unlimited property listings",
         "Unlimited leads",
         "Automated Follow-up Reminders",
