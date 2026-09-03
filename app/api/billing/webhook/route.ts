@@ -2,11 +2,6 @@ import { NextResponse } from 'next/server';
 import { checkPaymentStatus } from '@/lib/services/phonepe';
 import { supabaseAdmin } from '@/lib/services/supabase';
 
-/**
- * PhonePe v2 Server-to-Server Webhook
- * PhonePe POSTs to this endpoint when payment status changes.
- * Payload contains: orderId, transactionId, state, amount, etc.
- */
 export async function POST(request: Request) {
   try {
     const data = await request.json();
@@ -18,19 +13,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Missing orderId' }, { status: 400 });
     }
 
-    console.log(`[Webhook] Received | orderId=${orderId} | state=${state}`);
-
     if (state === 'COMPLETED') {
-      // Double-verify with PhonePe status API
       const statusResponse = await checkPaymentStatus(orderId);
       const confirmedState = statusResponse?.state || state;
 
       if (confirmedState !== 'COMPLETED') {
-        console.warn(`[Webhook] State mismatch | claimed=COMPLETED | actual=${confirmedState}`);
         return NextResponse.json({ received: true });
       }
 
-      // Update transaction
       await supabaseAdmin
         .from('transactions')
         .update({
@@ -41,36 +31,48 @@ export async function POST(request: Request) {
         })
         .eq('merchant_transaction_id', orderId);
 
-      // Get agency and activate subscription
       const { data: transaction } = await supabaseAdmin
         .from('transactions')
-        .select('agency_id, amount, plan_name')
+        .select('agency_id, plan_name')
         .eq('merchant_transaction_id', orderId)
         .single();
 
       if (transaction?.agency_id) {
-        const amount = transaction.amount;
-        let planType = 'starter';
-        let durationDays = 30;
+        const planParts = transaction.plan_name.split('_');
+        const cycle = planParts[0];
+        const seats = parseInt(planParts[1].replace('seats', ''), 10) || 1;
+        const durationDays = cycle === '6months' ? 180 : 30;
 
-        if (amount >= 1499) { planType = 'professional'; durationDays = 30; }
-        if (amount >= 7194) { planType = 'professional'; durationDays = 180; }
-        if (amount >= 2394) { planType = 'starter'; durationDays = 180; }
-
-        const endDate = new Date();
-        endDate.setDate(endDate.getDate() + durationDays);
+        const { data: agency } = await supabaseAdmin.from('agencies').select('subscription_status, subscription_end_date, max_users').eq('id', transaction.agency_id).single();
+        
+        let newEndDate = new Date();
+        
+        if (agency?.subscription_status === 'active' && agency.subscription_end_date) {
+            const currentEndDate = new Date(agency.subscription_end_date);
+            if (currentEndDate > new Date()) {
+                if (seats > (agency.max_users || 0)) {
+                    // Proration!
+                    newEndDate = currentEndDate;
+                } else {
+                    newEndDate = new Date(currentEndDate.getTime() + (durationDays * 24 * 60 * 60 * 1000));
+                }
+            } else {
+                newEndDate.setDate(newEndDate.getDate() + durationDays);
+            }
+        } else {
+            newEndDate.setDate(newEndDate.getDate() + durationDays);
+        }
 
         await supabaseAdmin
           .from('agencies')
           .update({
-            plan_type: planType,
+            plan_type: 'professional',
             subscription_status: 'active',
             subscription_start_date: new Date().toISOString(),
-            subscription_end_date: endDate.toISOString()
+            subscription_end_date: newEndDate.toISOString(),
+            max_users: seats
           })
           .eq('id', transaction.agency_id);
-
-        console.log(`[Webhook] Subscription activated | agency=${transaction.agency_id} | plan=${planType} | days=${durationDays}`);
       }
     } else if (state === 'FAILED') {
       await supabaseAdmin

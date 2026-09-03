@@ -2,10 +2,6 @@ import { NextResponse } from 'next/server';
 import { checkPaymentStatus } from '@/lib/services/phonepe';
 import { supabaseAdmin } from '@/lib/services/supabase';
 
-/**
- * PhonePe v2 redirects user here after payment attempt.
- * URL params: orderId, transactionId, state (COMPLETED|FAILED|PENDING)
- */
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
@@ -16,12 +12,11 @@ export async function GET(request: Request) {
       return NextResponse.redirect(new URL('/pricing?error=InvalidCallback', request.url), 303);
     }
 
-    // Verify the actual status with PhonePe (don't trust URL params alone)
+    // Verify the actual status with PhonePe
     const statusResponse = await checkPaymentStatus(orderId);
     const paymentState = statusResponse?.state || statusResponse?.data?.state || state;
 
     if (paymentState === 'COMPLETED') {
-      // Update transaction in DB
       await supabaseAdmin
         .from('transactions')
         .update({
@@ -31,42 +26,55 @@ export async function GET(request: Request) {
         })
         .eq('merchant_transaction_id', orderId);
 
-      // Activate the subscription
       const { data: transaction } = await supabaseAdmin
         .from('transactions')
-        .select('agency_id, amount, plan_name')
+        .select('agency_id, plan_name')
         .eq('merchant_transaction_id', orderId)
         .single();
 
       if (transaction?.agency_id) {
-        const amount = transaction.amount;
-        // Determine plan duration and type from amount
-        let planType = 'starter';
-        let durationDays = 30;
+        // Parse plan_name e.g. "monthly_5seats" or "6months_2seats"
+        const planParts = transaction.plan_name.split('_');
+        const cycle = planParts[0];
+        const seats = parseInt(planParts[1].replace('seats', ''), 10) || 1;
+        const durationDays = cycle === '6months' ? 180 : 30;
 
-        if (amount >= 1499) {
-          planType = 'professional';
-          durationDays = 30;
+        // Note: For actual PRORATION, we should look at existing expiry.
+        // If it's a pure upgrade (proration applied), the expiry doesn't change!
+        // But if they are RENEWING (buying time), it extends.
+        // For simplicity in this demo, we just extend by durationDays from NOW if it's expired,
+        // or add durationDays to the existing expiry if active.
+        
+        const { data: agency } = await supabaseAdmin.from('agencies').select('subscription_status, subscription_end_date, max_users').eq('id', transaction.agency_id).single();
+        
+        let newEndDate = new Date();
+        
+        if (agency?.subscription_status === 'active' && agency.subscription_end_date) {
+            const currentEndDate = new Date(agency.subscription_end_date);
+            if (currentEndDate > new Date()) {
+                if (seats > (agency.max_users || 0)) {
+                    // This was a PRORATED mid-cycle upgrade! 
+                    // Expiry date stays EXACTLY THE SAME.
+                    newEndDate = currentEndDate;
+                } else {
+                    // They are renewing ahead of time
+                    newEndDate = new Date(currentEndDate.getTime() + (durationDays * 24 * 60 * 60 * 1000));
+                }
+            } else {
+                newEndDate.setDate(newEndDate.getDate() + durationDays);
+            }
+        } else {
+            newEndDate.setDate(newEndDate.getDate() + durationDays);
         }
-        if (amount >= 7194) {
-          // 6-month professional
-          durationDays = 180;
-        }
-        if (amount >= 2394) {
-          // 6-month starter
-          durationDays = 180;
-        }
-
-        const endDate = new Date();
-        endDate.setDate(endDate.getDate() + durationDays);
 
         await supabaseAdmin
           .from('agencies')
           .update({
-            plan_type: planType,
+            plan_type: 'professional',
             subscription_status: 'active',
             subscription_start_date: new Date().toISOString(),
-            subscription_end_date: endDate.toISOString()
+            subscription_end_date: newEndDate.toISOString(),
+            max_users: seats
           })
           .eq('id', transaction.agency_id);
       }
@@ -76,7 +84,6 @@ export async function GET(request: Request) {
         303
       );
     } else {
-      // Mark failed
       await supabaseAdmin
         .from('transactions')
         .update({ status: 'FAILED', updated_at: new Date().toISOString() })
@@ -93,7 +100,6 @@ export async function GET(request: Request) {
   }
 }
 
-// Also handle POST (some PhonePe flows POST the callback)
 export async function POST(request: Request) {
   const { searchParams } = new URL(request.url);
   const orderId = searchParams.get('orderId');
