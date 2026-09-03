@@ -1,108 +1,133 @@
-import crypto from 'crypto';
+/**
+ * PhonePe Payment Gateway Integration - V2 OAuth Flow
+ * Uses Client Credentials OAuth to get a Bearer token, then hits the v2 checkout API.
+ */
 
-const MERCHANT_ID = process.env.PHONEPE_MERCHANT_ID || '';
-const SALT_KEY = process.env.PHONEPE_SALT_KEY || '';
-const SALT_INDEX = process.env.PHONEPE_SALT_INDEX || '1';
-const ENV = process.env.PHONEPE_ENV || 'UAT';
+const CLIENT_ID = process.env.PHONEPE_MERCHANT_ID || '';
+const CLIENT_SECRET = process.env.PHONEPE_SALT_KEY || '';
+const CLIENT_VERSION = process.env.PHONEPE_SALT_INDEX || '1';
+const ENV = (process.env.PHONEPE_ENV || 'PROD').trim();
 
-// UAT URL: https://api-preprod.phonepe.com/apis/pg-sandbox
-// PROD URL: https://api.phonepe.com/apis/hermes
-const BASE_URL = ENV === 'PROD' 
-  ? 'https://api.phonepe.com/apis/hermes' 
-  : 'https://api-preprod.phonepe.com/apis/pg-sandbox';
+const IS_PROD = ENV === 'PROD';
 
-export interface PaymentRequest {
-  merchantTransactionId: string;
-  merchantUserId: string; // Agency ID
-  amount: number; // In Rupees (will be converted to paise)
-  redirectUrl: string;
-  redirectMode: 'REDIRECT' | 'POST';
-  callbackUrl: string;
-  mobileNumber?: string;
-}
+const TOKEN_URL = IS_PROD
+  ? 'https://api.phonepe.com/apis/identity-manager/v1/oauth/token'
+  : 'https://api-preprod.phonepe.com/apis/pg-sandbox/v1/oauth/token';
+
+const CHECKOUT_URL = IS_PROD
+  ? 'https://api.phonepe.com/apis/pg/checkout/v2/pay'
+  : 'https://api-preprod.phonepe.com/apis/pg-sandbox/checkout/v2/pay';
+
+const STATUS_URL_BASE = IS_PROD
+  ? 'https://api.phonepe.com/apis/pg/checkout/v2/order'
+  : 'https://api-preprod.phonepe.com/apis/pg-sandbox/checkout/v2/order';
+
+// In-memory token cache (cleared on server restart, but sufficient for Vercel serverless)
+let cachedToken: { token: string; expiresAt: number } | null = null;
 
 /**
- * Initiates a payment session with PhonePe
+ * Gets a valid OAuth bearer token, using cached one if still valid
  */
-export async function initiatePayment(payload: PaymentRequest) {
-  if (!MERCHANT_ID || !SALT_KEY) {
-    throw new Error('PhonePe configuration missing from environment variables.');
+async function getAccessToken(): Promise<string> {
+  // Return cached token if it has >60 seconds left
+  if (cachedToken && Date.now() < cachedToken.expiresAt - 60000) {
+    return cachedToken.token;
   }
 
-  const requestBody = {
-    merchantId: MERCHANT_ID,
-    merchantTransactionId: payload.merchantTransactionId,
-    merchantUserId: payload.merchantUserId,
-    amount: Math.round(payload.amount * 100), // Convert to paise
-    redirectUrl: payload.redirectUrl,
-    redirectMode: payload.redirectMode,
-    callbackUrl: payload.callbackUrl,
-    mobileNumber: payload.mobileNumber,
-    paymentInstrument: {
-      type: 'PAY_PAGE'
-    }
-  };
-
-  const base64Payload = Buffer.from(JSON.stringify(requestBody)).toString('base64');
-  
-  // X-VERIFY = SHA256(base64Payload + "/pg/v1/pay" + saltKey) + ### + saltIndex
-  const endpoint = '/pg/v1/pay';
-  const stringToHash = base64Payload + endpoint + SALT_KEY;
-  const sha256 = crypto.createHash('sha256').update(stringToHash).digest('hex');
-  const checksum = `${sha256}###${SALT_INDEX}`;
-
-  const response = await fetch(`${BASE_URL}${endpoint}`, {
+  const response = await fetch(TOKEN_URL, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-VERIFY': checksum
-    },
-    body: JSON.stringify({ request: base64Payload })
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      client_id: CLIENT_ID,
+      client_secret: CLIENT_SECRET,
+      client_version: CLIENT_VERSION,
+      grant_type: 'client_credentials'
+    })
   });
 
   const data = await response.json();
 
-  if (!data.success) {
-    console.error('PhonePe Error:', data);
-    throw new Error(data.message || 'Payment initiation failed');
+  if (!data.access_token) {
+    console.error('[PhonePe] Token error:', data);
+    throw new Error('Failed to get PhonePe access token');
+  }
+
+  cachedToken = {
+    token: data.access_token,
+    expiresAt: data.expires_at ? data.expires_at * 1000 : Date.now() + 3600000
+  };
+
+  console.log(`[PhonePe] New token obtained, expires at: ${new Date(cachedToken.expiresAt).toISOString()}`);
+  return cachedToken.token;
+}
+
+export interface PaymentRequest {
+  merchantOrderId: string;
+  amount: number; // In Rupees (will be converted to paise)
+  redirectUrl: string;
+  metaInfo?: Record<string, string>;
+}
+
+/**
+ * Initiates a PhonePe v2 payment checkout session
+ */
+export async function initiatePayment(payload: PaymentRequest) {
+  if (!CLIENT_ID || !CLIENT_SECRET) {
+    throw new Error('PhonePe configuration missing from environment variables.');
+  }
+
+  const token = await getAccessToken();
+
+  const requestBody = {
+    merchantOrderId: payload.merchantOrderId,
+    amount: Math.round(payload.amount * 100), // Rupees → paise
+    expireAfter: 1200, // 20 minutes
+    paymentFlow: {
+      type: 'PG_CHECKOUT',
+      message: 'PropDesk Subscription Payment',
+      merchantUrls: {
+        redirectUrl: payload.redirectUrl
+      }
+    },
+    ...(payload.metaInfo ? { metaInfo: payload.metaInfo } : {})
+  };
+
+  console.log(`[PhonePe] Initiating payment | OrderId=${payload.merchantOrderId} | Amount=₹${payload.amount}`);
+
+  const response = await fetch(CHECKOUT_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `O-Bearer ${token}`
+    },
+    body: JSON.stringify(requestBody)
+  });
+
+  const data = await response.json();
+
+  if (!data.redirectUrl && data.state !== 'PENDING') {
+    console.error('[PhonePe] Checkout error:', JSON.stringify(data));
+    throw new Error(data.message || data.description || 'Payment initiation failed');
   }
 
   return {
     success: true,
-    redirectUrl: data.data.instrumentResponse.redirectInfo.url,
-    transactionId: payload.merchantTransactionId
+    redirectUrl: data.redirectUrl,
+    orderId: payload.merchantOrderId
   };
 }
 
 /**
- * Verifies the callback response from PhonePe
+ * Checks payment/order status by merchant order ID
  */
-export function verifyCallback(responseBase64: string, xVerifyHeader: string): boolean {
-  if (!responseBase64 || !xVerifyHeader) return false;
+export async function checkPaymentStatus(merchantOrderId: string) {
+  const token = await getAccessToken();
 
-  const stringToHash = responseBase64 + SALT_KEY;
-  const sha256 = crypto.createHash('sha256').update(stringToHash).digest('hex');
-  const expectedChecksum = `${sha256}###${SALT_INDEX}`;
-
-  return xVerifyHeader === expectedChecksum;
-}
-
-/**
- * Checks payment status manually
- */
-export async function checkPaymentStatus(merchantTransactionId: string) {
-  const endpoint = `/pg/v1/status/${MERCHANT_ID}/${merchantTransactionId}`;
-  
-  const stringToHash = endpoint + SALT_KEY;
-  const sha256 = crypto.createHash('sha256').update(stringToHash).digest('hex');
-  const checksum = `${sha256}###${SALT_INDEX}`;
-
-  const response = await fetch(`${BASE_URL}${endpoint}`, {
+  const response = await fetch(`${STATUS_URL_BASE}/${merchantOrderId}/status`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'X-VERIFY': checksum,
-      'X-MERCHANT-ID': MERCHANT_ID
+      'Authorization': `O-Bearer ${token}`
     }
   });
 

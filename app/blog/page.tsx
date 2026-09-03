@@ -37,7 +37,7 @@ export default function BlogPage() {
       <section className="py-20 md:py-24 relative bg-white border-b border-slate-200/50">
         <div className="absolute inset-0 bg-linear-to-b from-slate-50/50 to-transparent pointer-events-none" />
         {/* Glow halo */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-400/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-emerald-400/5 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div variants={stagger} initial="hidden" animate="show" className="space-y-6">
@@ -103,8 +103,8 @@ export default function BlogPage() {
                 {/* Featured Image Background */}
                 {featured.content.match(/!\[.*?\]\((.*?)\)/) && (
                   <div className="absolute inset-0 z-0 opacity-40 group-hover:opacity-50 transition-opacity duration-500">
-                    <img 
-                      src={featured.content.match(/!\[.*?\]\((.*?)\)/)?.[1]} 
+                    <img
+                      src={featured.content.match(/!\[.*?\]\((.*?)\)/)?.[1]}
                       alt={featured.title}
                       className="w-full h-full object-cover mix-blend-overlay"
                     />
@@ -113,9 +113,9 @@ export default function BlogPage() {
                 )}
 
                 {/* Visual Accent */}
-                <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[80px] pointer-events-none" />
+                <div className="absolute top-0 right-0 w-100 h-100 bg-emerald-500/10 rounded-full blur-[80px] pointer-events-none" />
 
-                <div className="p-8 md:p-14 lg:p-16 relative z-10 flex flex-col justify-between min-h-[400px]">
+                <div className="p-8 md:p-14 lg:p-16 relative z-10 flex flex-col justify-between min-h-100">
                   <div>
                     <div className="flex flex-wrap items-center gap-3 mb-6">
                       <span className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold border ${categoryColors[featured.category] || "bg-emerald-50 text-emerald-700 border-emerald-100"}`}>
@@ -260,8 +260,8 @@ export default function BlogPage() {
             className="relative bg-slate-900 rounded-[2.5rem] md:rounded-[4rem] overflow-hidden shadow-2xl shadow-slate-900/20"
           >
             {/* Minimalist Geometric Accents */}
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-teal-500/10 rounded-full blur-[80px] -translate-x-1/3 translate-y-1/3 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-150 h-150 bg-emerald-500/10 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-100 h-100 bg-teal-500/10 rounded-full blur-[80px] -translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
             <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between p-10 md:p-16 lg:p-24 gap-12 lg:gap-20">
 

@@ -411,7 +411,7 @@ export default function Home() {
       <section className="py-24 md:py-32 px-6 md:px-12 bg-white relative overflow-hidden text-slate-900 border-t border-slate-100">
         {/* Subtle background accents */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-slate-50 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-emerald-50/50 blur-[100px] rounded-full pointer-events-none translate-y-1/3 -translate-x-1/4" />
+        <div className="absolute bottom-0 left-0 w-150 h-150 bg-emerald-50/50 blur-[100px] rounded-full pointer-events-none translate-y-1/3 -translate-x-1/4" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -721,7 +721,7 @@ export default function Home() {
               transition={{ repeat: Infinity, ease: "linear", duration: 40 }}
             >
               {[...testimonials, ...testimonials, ...testimonials, ...testimonials].map((t, i) => (
-                <div key={i} className="card p-7 flex flex-col w-[320px] md:w-[400px] flex-shrink-0">
+                <div key={i} className="card p-7 flex flex-col w-[320px] md:w-100 flex-shrink-0">
                   <div className="flex items-center gap-1 mb-4">
                     {[1, 2, 3, 4, 5].map(s => <Star key={s} className="w-4 h-4 fill-amber-400 text-amber-400" />)}
                   </div>

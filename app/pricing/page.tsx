@@ -110,7 +110,7 @@ const faqs = [
 
 export default function PricingPage() {
   const [agencyId, setAgencyId] = useState<string | null>(null);
-  
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
@@ -126,9 +126,9 @@ export default function PricingPage() {
       {/* ═══ HERO ══════════════════════════════════════════════════════════════ */}
       <section className="relative py-24 md:py-32 bg-white overflow-hidden border-b border-slate-100">
         {/* Subtle background accents */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-slate-50 rounded-full blur-[80px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
-        <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-emerald-50/50 blur-[80px] rounded-full pointer-events-none -translate-y-1/2 -translate-x-1/4" />
-        
+        <div className="absolute top-0 right-0 w-150 h-150 bg-slate-50 rounded-full blur-[80px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
+        <div className="absolute top-1/2 left-0 w-125 h-125 bg-emerald-50/50 blur-[80px] rounded-full pointer-events-none -translate-y-1/2 -translate-x-1/4" />
+
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.div variants={stagger} initial="hidden" animate="show" className="space-y-6">
             <motion.div variants={fadeUp} className="flex justify-center">
@@ -208,11 +208,11 @@ export default function PricingPage() {
                     {plan.badge}
                   </span>
                 </div>
-                
+
                 <h3 className={`text-3xl font-black mb-2 font-display ${plan.popular ? "text-white" : "text-slate-900"}`}>
                   {plan.name}
                 </h3>
-                
+
                 <p className={`text-sm leading-relaxed mb-6 font-medium ${plan.popular ? "text-slate-400" : "text-slate-500"}`}>
                   {plan.description}
                 </p>
@@ -289,9 +289,9 @@ export default function PricingPage() {
                     <input type="hidden" name="amount" value={billing === "annual" ? plan.annualPrice * 6 : plan.monthlyPrice} />
                     <input type="hidden" name="planName" value={plan.name} />
                     <button type="submit" className={`w-full text-center py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-2 ${plan.popular
-                    ? "bg-emerald-500 hover:bg-emerald-450 text-white shadow-lg shadow-emerald-500/25 hover:-translate-y-0.5"
-                    : "bg-slate-50 hover:bg-slate-100 text-slate-900 border border-slate-200 hover:-translate-y-0.5"
-                    }`}>
+                      ? "bg-emerald-500 hover:bg-emerald-450 text-white shadow-lg shadow-emerald-500/25 hover:-translate-y-0.5"
+                      : "bg-slate-50 hover:bg-slate-100 text-slate-900 border border-slate-200 hover:-translate-y-0.5"
+                      }`}>
                       Pay & Upgrade <ArrowRight className="w-4 h-4" />
                     </button>
                   </form>

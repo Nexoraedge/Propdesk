@@ -63,8 +63,8 @@ export default function HeroSection() {
                     }}
                 />
                 {/* Glowing orbs */}
-                <div className="absolute top-[-10%] right-[-5%] w-[800px] h-[800px] rounded-full bg-emerald-400/10 blur-[120px]" />
-                <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-teal-300/10 blur-[100px]" />
+                <div className="absolute top-[-10%] right-[-5%] w-200 h-200 rounded-full bg-emerald-400/10 blur-[120px]" />
+                <div className="absolute bottom-[-10%] left-[-10%] w-150 h-150 rounded-full bg-teal-300/10 blur-[100px]" />
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
