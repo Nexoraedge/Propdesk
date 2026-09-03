@@ -83,7 +83,7 @@ export async function GET(request: Request) {
         .eq('merchant_transaction_id', orderId);
 
       return NextResponse.redirect(
-        new URL('/pricing?error=PaymentFailed', request.url),
+        new URL('/payment-failed', request.url),
         303
       );
     }
