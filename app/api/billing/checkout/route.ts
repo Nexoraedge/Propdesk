@@ -9,14 +9,14 @@ export async function POST(request: Request) {
     const agencyId = formData.get('agencyId') as string;
 
     if (!agencyId) {
-      return NextResponse.redirect(new URL('/pricing?error=MissingAgency', request.url));
+      return NextResponse.redirect(new URL('/pricing?error=MissingAgency', request.url), 303);
     }
 
     // 1. Generate unique transaction ID
     const merchantTransactionId = `T${Date.now()}${crypto.randomBytes(4).toString('hex').toUpperCase()}`;
 
     // 2. Log pending transaction to database
-    const amount = 2499; // ₹2499 per month
+    const amount = formData.get('amount') ? parseInt(formData.get('amount') as string, 10) : 2499;
     
     const { error: dbError } = await supabaseAdmin
       .from('transactions')
@@ -29,7 +29,7 @@ export async function POST(request: Request) {
 
     if (dbError) {
       console.error('Failed to log transaction:', dbError);
-      return NextResponse.redirect(new URL('/pricing?error=DatabaseError', request.url));
+      return NextResponse.redirect(new URL('/pricing?error=DatabaseError', request.url), 303);
     }
 
     // 3. Construct base URL for callbacks/redirects
@@ -51,10 +51,10 @@ export async function POST(request: Request) {
       return NextResponse.redirect(payment.redirectUrl, 303);
     }
 
-    return NextResponse.redirect(new URL('/pricing?error=PaymentInitiationFailed', request.url));
+    return NextResponse.redirect(new URL('/pricing?error=PaymentInitiationFailed', request.url), 303);
 
   } catch (error) {
     console.error('Checkout error:', error);
-    return NextResponse.redirect(new URL('/pricing?error=ServerError', request.url));
+    return NextResponse.redirect(new URL('/pricing?error=ServerError', request.url), 303);
   }
 }

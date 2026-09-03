@@ -108,7 +108,8 @@ const faqs = [
   },
 ];
 
-export default function PricingPage() {
+export default function PricingPage({ searchParams }: { searchParams?: { agencyId?: string } }) {
+  const agencyId = searchParams?.agencyId;
   const [billing, setBilling] = useState<BillingPeriod>("monthly");
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
@@ -262,15 +263,29 @@ export default function PricingPage() {
                   </ul>
                 </div>
 
-                <Link
-                  href="/signup"
-                  className={`w-full text-center py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-2 mt-8 ${plan.popular
+                {agencyId ? (
+                  <form method="POST" action="/api/billing/checkout" className="w-full mt-8">
+                    <input type="hidden" name="agencyId" value={agencyId} />
+                    <input type="hidden" name="amount" value={billing === "annual" ? plan.annualPrice * 6 : plan.monthlyPrice} />
+                    <input type="hidden" name="planName" value={plan.name} />
+                    <button type="submit" className={`w-full text-center py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-2 ${plan.popular
                     ? "bg-emerald-500 hover:bg-emerald-450 text-white shadow-lg shadow-emerald-500/25 hover:-translate-y-0.5"
                     : "bg-slate-50 hover:bg-slate-100 text-slate-900 border border-slate-200 hover:-translate-y-0.5"
-                    }`}
-                >
-                  {plan.cta} <ArrowRight className="w-4 h-4" />
-                </Link>
+                    }`}>
+                      Pay & Upgrade <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </form>
+                ) : (
+                  <Link
+                    href="/signup"
+                    className={`w-full text-center py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-2 mt-8 ${plan.popular
+                      ? "bg-emerald-500 hover:bg-emerald-450 text-white shadow-lg shadow-emerald-500/25 hover:-translate-y-0.5"
+                      : "bg-slate-50 hover:bg-slate-100 text-slate-900 border border-slate-200 hover:-translate-y-0.5"
+                      }`}
+                  >
+                    {plan.cta} <ArrowRight className="w-4 h-4" />
+                  </Link>
+                )}
                 <p className={`text-center text-xs mt-4 ${plan.popular ? "text-slate-400" : "text-slate-550"}`}>
                   {plan.customPricing ? "Custom setup & onboarding included" : "Cancel anytime. No credit card required."}
                 </p>
