@@ -51,7 +51,7 @@ const plans = [
     features: [
       "PropDesk Copilot AI",
       "4 Agent Accounts included",
-      "+ ₹449/mo per additional agent",
+      "+ ₹400/mo per additional agent",
       "Unlimited property listings",
       "Unlimited leads",
       "Automated Follow-up Reminders",
@@ -263,7 +263,7 @@ export default function PricingPage({ searchParams }: { searchParams?: { agencyI
                   </ul>
                 </div>
 
-                {agencyId ? (
+                {agencyId && !plan.customPricing ? (
                   <form method="POST" action="/api/billing/checkout" className="w-full mt-8">
                     <input type="hidden" name="agencyId" value={agencyId} />
                     <input type="hidden" name="amount" value={billing === "annual" ? plan.annualPrice * 6 : plan.monthlyPrice} />
@@ -277,7 +277,7 @@ export default function PricingPage({ searchParams }: { searchParams?: { agencyI
                   </form>
                 ) : (
                   <Link
-                    href="/signup"
+                    href={plan.customPricing ? "https://wa.me/917208850778?text=I%20am%20interested%20in%20the%20Enterprise%20Agency%20Plan." : "/signup"}
                     className={`w-full text-center py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-2 mt-8 ${plan.popular
                       ? "bg-emerald-500 hover:bg-emerald-450 text-white shadow-lg shadow-emerald-500/25 hover:-translate-y-0.5"
                       : "bg-slate-50 hover:bg-slate-100 text-slate-900 border border-slate-200 hover:-translate-y-0.5"
