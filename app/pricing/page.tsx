@@ -134,13 +134,26 @@ export default function PricingPage() {
             <motion.div variants={fadeUp} className="flex justify-center">
               <span className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-600 border border-emerald-100 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest shadow-sm"><Zap className="w-3.5 h-3.5" />Simple, Transparent Pricing</span>
             </motion.div>
-            <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-7xl font-medium font-playfair tracking-tight text-slate-900 leading-[1.15] text-balance">
-              Simple Pricing for <br />
-              <span className="text-[#051a67] italic font-light">Real Estate Agents</span>
-            </motion.h1>
-            <motion.p variants={fadeUp} className="text-xl text-slate-500 leading-relaxed font-medium max-w-2xl mx-auto">
-              Every plan includes a full 14-day free trial. No credit card required. Cancel anytime.
-            </motion.p>
+            {agencyId ? (
+              <>
+                <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.15] text-balance">
+                  Upgrade Your Workspace
+                </motion.h1>
+                <motion.p variants={fadeUp} className="text-lg text-slate-500 leading-relaxed font-medium max-w-2xl mx-auto mt-4">
+                  Choose the right plan to continue managing your agency and clients seamlessly.
+                </motion.p>
+              </>
+            ) : (
+              <>
+                <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-7xl font-medium font-playfair tracking-tight text-slate-900 leading-[1.15] text-balance">
+                  Simple Pricing for <br />
+                  <span className="text-[#051a67] italic font-light">Real Estate Agents</span>
+                </motion.h1>
+                <motion.p variants={fadeUp} className="text-xl text-slate-500 leading-relaxed font-medium max-w-2xl mx-auto">
+                  Every plan includes a full 14-day free trial. No credit card required. Cancel anytime.
+                </motion.p>
+              </>
+            )}
 
             {/* Billing toggle */}
             <motion.div variants={fadeUp} className="flex items-center justify-center gap-4 pt-4">
