@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { checkPaymentStatus } from '@/lib/services/phonepe';
 import { supabaseAdmin } from '@/lib/services/supabase';
+import { sendEmail, generateReceiptEmail, generateAdminPurchaseNotification } from '@/lib/services/email';
 
 export async function GET(request: Request) {
   try {
@@ -28,7 +29,7 @@ export async function GET(request: Request) {
 
       const { data: transaction } = await supabaseAdmin
         .from('transactions')
-        .select('agency_id, plan_name')
+        .select('agency_id, plan_name, amount')
         .eq('merchant_transaction_id', orderId)
         .single();
 
@@ -76,7 +77,43 @@ export async function GET(request: Request) {
             subscription_end_date: newEndDate.toISOString(),
             max_users: seats
           })
-          .eq('id', transaction.agency_id);
+                    .eq('id', transaction.agency_id);
+          
+        // Send Emails
+        try {
+          const { data: updatedAgency } = await supabaseAdmin.from('agencies').select('name').eq('id', transaction.agency_id).single();
+          const agencyName = updatedAgency?.name || 'Your Agency';
+          const amount = transaction.amount || 0;
+          const dateStr = new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' });
+          const planDisplay = cycle === '6months' ? '6 Months Plan' : 'Monthly Plan';
+
+          // Fetch all admins for this agency to send receipts
+          const { data: admins } = await supabaseAdmin
+            .from('profiles')
+            .select('email')
+            .eq('agency_id', transaction.agency_id)
+            .eq('role', 'admin');
+
+          if (admins && admins.length > 0) {
+            const adminEmails = admins.map(a => a.email).filter(Boolean) as string[];
+            if (adminEmails.length > 0) {
+              await sendEmail({
+                to: adminEmails,
+                subject: `Payment Receipt for ${agencyName}`,
+                html: generateReceiptEmail(agencyName, planDisplay, seats, amount, dateStr)
+              });
+            }
+          }
+
+          // Send admin notification to deskprop1@gmail.com
+          await sendEmail({
+            to: 'deskprop1@gmail.com',
+            subject: `🎉 New Sale - ${agencyName}`,
+            html: generateAdminPurchaseNotification(agencyName, planDisplay, seats, amount)
+          });
+        } catch (emailErr) {
+          console.error("Failed to send billing emails:", emailErr);
+        }
       }
 
       return NextResponse.redirect(
