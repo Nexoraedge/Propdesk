@@ -91,9 +91,10 @@ function SignupFormInner() {
         <p className="text-slate-600 mb-4 text-lg">
           It takes 2-3 minutes to set up your account. We've sent an invite link to <strong className="text-slate-900">{email}</strong>.
         </p>
-        <p className="text-sm font-medium text-amber-600 mb-8 bg-amber-50 p-3 rounded-xl border border-amber-100">
-          Please check your spam or promotions folder in case you don't see it.
-        </p>
+        <div className="text-sm font-medium text-red-600 mb-8 bg-red-50 p-4 rounded-xl border-2 border-red-200 text-left shadow-sm">
+          <p className="font-bold mb-1 uppercase tracking-wide text-xs">Important Note</p>
+          <p>Please make sure to check your spam folder before clicking on resend.</p>
+        </div>
 
         {error && (
           <div className="p-3 mb-6 bg-red-50 text-red-600 text-sm rounded-xl border border-red-100">
