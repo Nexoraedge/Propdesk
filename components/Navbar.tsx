@@ -130,7 +130,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between p-5 border-b border-slate-100">
           <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-lg bg-emerald-600 flex items-center justify-center">
-              <Image src="/prop.png" alt="PropDesk" width={18} height={18} className="object-contain brightness-0 invert" />
+              <Image src="/prop.png" alt="PropDesk" width={18} height={18} className="object-contain" />
             </div>
             <span className="font-bold text-slate-900 font-display">Prop<span className="text-emerald-600">Desk</span></span>
           </Link>
