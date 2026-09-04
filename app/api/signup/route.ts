@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/services/supabase';
+import { sendEmail, generateInvitationEmail } from '@/lib/services/email';
 
 export async function POST(request: Request) {
   try {
@@ -31,19 +32,35 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Failed to create your account' }, { status: 500 });
     }
 
-    // 2. Send Supabase Magic Link / Invite Email
-    const { data: inviteData, error: inviteError } = await supabaseAdmin.auth.admin.inviteUserByEmail(email, {
-      data: {
-        agency_id: agency.id,
-        role: 'admin',
-        full_name: 'Agency Admin'
-      },
-      redirectTo: 'https://app.thepropdesk.in/accept-invite'
+    // 2. Generate secure token without sending Supabase email
+    const { data: inviteData, error: inviteError } = await supabaseAdmin.auth.admin.generateLink({
+      type: 'invite',
+      email: email,
+      options: {
+        data: {
+          agency_id: agency.id,
+          role: 'admin',
+          full_name: 'Agency Admin'
+        },
+        redirectTo: 'https://app.thepropdesk.in/accept-invite'
+      }
     });
 
     if (inviteError) {
-      console.error('Failed to send invite:', inviteError);
+      console.error('Failed to generate invite:', inviteError);
       return NextResponse.json({ error: 'Failed to send invitation email' }, { status: 500 });
+    }
+
+    // 3. Construct custom link and send via Resend
+    const hashedToken = inviteData?.properties?.hashed_token;
+    const inviteUrl = `https://app.thepropdesk.in/accept-invite?token_hash=${hashedToken}&type=invite`;
+    
+    if (hashedToken) {
+      await sendEmail({
+        to: email,
+        subject: `You have been invited to PropDesk`,
+        html: generateInvitationEmail(companyName, inviteUrl)
+      });
     }
 
     return NextResponse.json({ 
