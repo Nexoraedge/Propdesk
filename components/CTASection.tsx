@@ -41,7 +41,7 @@ export default function CTASection() {
             </Link>
 
             <a
-              href="https://wa.me/917208850778?text=Hi%20PropDesk%20Team%2C%20I%27d%20like%20to%20learn%2520more%20about%20your%20software."
+              href="https://wa.me/917976123042?text=Hi%20PropDesk%20Team%2C%20I%27d%20like%20to%20learn%2520more%20about%20your%20software."
               target="_blank"
               rel="noopener noreferrer"
               className="flex w-full sm:w-auto items-center justify-center gap-2 px-8 py-4 text-base font-bold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 active:scale-95 transition-all duration-205 rounded-xl font-display shadow-sm cursor-pointer"

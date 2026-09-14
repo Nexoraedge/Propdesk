@@ -69,7 +69,7 @@ export default function PaymentFailedPage() {
             </div>
             <div>
               <p className="text-sm font-bold text-slate-900">Need Help?</p>
-              <p className="text-xs text-slate-500 mt-1 leading-snug font-medium">Contact support at 72088 50778 if you face issues.</p>
+              <p className="text-xs text-slate-500 mt-1 leading-snug font-medium">Contact support at 79761 23042 if you face issues.</p>
             </div>
           </motion.div>
 

@@ -32,14 +32,14 @@ export default function PrivacyPage() {
       {/* Content */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="bg-white border border-slate-200 rounded-3xl p-6 md:p-12 shadow-sm space-y-8">
-          
+
           <section className="space-y-4">
             <h2 className="text-xl font-bold text-slate-900 font-display flex items-center gap-2">
               <span className="w-1.5 h-6 bg-emerald-500 rounded-full" />
               1. Introduction
             </h2>
             <p className="leading-relaxed">
-              PropDesk Technologies ("we," "our," or "us") respects your privacy and is committed to protecting the personal data of our users, agents, brokers, and real estate agencies using the PropDesk CRM and Property Management Software platform. 
+              PropDesk Technologies ("we," "our," or "us") respects your privacy and is committed to protecting the personal data of our users, agents, brokers, and real estate agencies using the PropDesk CRM and Property Management Software platform.
             </p>
             <p className="leading-relaxed">
               This Privacy Policy explains how we collect, use, store, share, and protect your information when you visit our website at <Link href="/" className="text-emerald-650 hover:underline font-medium">propdesk.in</Link>, utilize our CRM services, and interface with our mobile/web applications.
@@ -129,8 +129,8 @@ export default function PrivacyPage() {
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-3 max-w-md">
               <p className="text-sm font-bold text-slate-950">PropDesk Support Officer</p>
               <p className="text-sm">📧 Email: <a href="mailto:hardikjain2030@gmail.com" className="text-emerald-650 hover:underline font-medium">hardikjain2030@gmail.com</a></p>
-              <p className="text-sm">💬 WhatsApp Support (Fastest): <a href="https://wa.me/917208850778?text=Hi%20PropDesk%20Support" target="_blank" rel="noopener noreferrer" className="text-emerald-650 hover:underline font-bold">+91 72088 50778</a></p>
-              <p className="text-sm">📞 Phone Hotline: <a href="tel:+918271310911" className="text-emerald-650 hover:underline font-medium">+91 82713 10911</a></p>
+              <p className="text-sm">💬 WhatsApp Support (Fastest): <a href="https://wa.me/917976123042?text=Hi%20PropDesk%20Support" target="_blank" rel="noopener noreferrer" className="text-emerald-650 hover:underline font-bold">+91 79761 23042</a></p>
+              <p className="text-sm">📞 Phone Hotline: <a href="tel:+917976123042" className="text-emerald-650 hover:underline font-medium">+91 79761 23042</a></p>
               <p className="text-sm text-slate-500">🏢 Office: Ground Floor, MohanBari, Surajpole Gate, Jaipur, Rajasthan, India</p>
             </div>
           </section>

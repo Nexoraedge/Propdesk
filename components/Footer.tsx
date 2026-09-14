@@ -116,23 +116,23 @@ export default function Footer() {
           <div className="space-y-6">
             <h3 className="text-xs font-bold text-slate-300 uppercase tracking-widest font-display">Get in Touch</h3>
             <address className="not-italic space-y-4">
-              <a href="https://wa.me/917208850778?text=Hi%20PropDesk%20Support" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3.5 group">
+              <a href="https://wa.me/917976123042?text=Hi%20PropDesk%20Support" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3.5 group">
                 <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 group-hover:text-emerald-450 group-hover:bg-emerald-500/10 group-hover:border-emerald-500/20 transition-all duration-200 shrink-0">
                   <Phone className="w-4 h-4 text-emerald-400" />
                 </div>
                 <div>
                   <span className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider">WhatsApp Support (Fastest)</span>
-                  <span className="block text-sm font-semibold text-slate-350 group-hover:text-white transition-colors">+91 72088 50778</span>
+                  <span className="block text-sm font-semibold text-slate-350 group-hover:text-white transition-colors">+91 79761 23042</span>
                 </div>
               </a>
 
-              <a href="tel:+918271310911" className="flex items-center gap-3.5 group">
+              <a href="tel:+917976123042" className="flex items-center gap-3.5 group">
                 <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 group-hover:text-emerald-450 group-hover:bg-emerald-500/10 group-hover:border-emerald-500/20 transition-all duration-200 shrink-0">
                   <Phone className="w-4 h-4 text-slate-400 group-hover:text-emerald-400 transition-colors" />
                 </div>
                 <div>
                   <span className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider">Call Support</span>
-                  <span className="block text-sm font-semibold text-slate-350 group-hover:text-white transition-colors">+91 82713 10911</span>
+                  <span className="block text-sm font-semibold text-slate-350 group-hover:text-white transition-colors">+91 79761 23042</span>
                 </div>
               </a>
 
@@ -173,7 +173,7 @@ export default function Footer() {
       {/* Bottom Legal & Credit Bar */}
       <div className="relative border-t border-white/10 bg-slate-900/50 backdrop-blur-sm z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col xl:flex-row items-center justify-between gap-y-6 gap-x-8 text-sm text-slate-400">
-          
+
           {/* Left Side: Copyright & Certifications */}
           <div className="flex flex-wrap justify-center xl:justify-start items-center gap-x-4 gap-y-3">
             <span className="font-semibold text-slate-300 whitespace-nowrap">© {currentYear} PropDesk</span>
