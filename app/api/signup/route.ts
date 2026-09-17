@@ -5,10 +5,10 @@ import { sendEmail, generateInvitationEmail } from '@/lib/services/email';
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { email, companyName, affiliateCode } = body;
+    const { email, companyName, phone, affiliateCode } = body;
 
-    if (!email || !companyName) {
-      return NextResponse.json({ error: 'Email and Company Name are required' }, { status: 400 });
+    if (!email || !companyName || !phone) {
+      return NextResponse.json({ error: 'Email, Company Name, and Phone are required' }, { status: 400 });
     }
 
     // 1. Create the Agency in Supabase with a 14-day free trial
@@ -54,18 +54,32 @@ export async function POST(request: Request) {
     // 3. Construct custom link and send via Resend
     const hashedToken = inviteData?.properties?.hashed_token;
     const inviteUrl = `https://app.thepropdesk.in/accept-invite?token_hash=${hashedToken}&type=invite`;
-    
+
     if (hashedToken) {
       await sendEmail({
         to: email,
         subject: `You have been invited to PropDesk`,
         html: generateInvitationEmail(companyName, inviteUrl)
       });
+
+      // Notify Admin
+      await sendEmail({
+        to: process.env.ADMIN_EMAIL || 'deskprop1@gmail.com',
+        subject: `New PropDesk Signup: ${companyName}`,
+        html: `
+          <div style="font-family: sans-serif; padding: 20px;">
+            <h2 style="color: #333;">New Signup Alert 🚀</h2>
+            <p><strong>Agency Name:</strong> ${companyName}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Phone:</strong> ${phone}</p>
+          </div>
+        `
+      });
     }
 
-    return NextResponse.json({ 
-      success: true, 
-      message: 'Account created! Please check your email to complete setup.' 
+    return NextResponse.json({
+      success: true,
+      message: 'Account created! Please check your email to complete setup.'
     });
 
   } catch (error) {

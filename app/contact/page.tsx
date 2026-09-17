@@ -43,7 +43,7 @@ export default function ContactPage() {
       label: "Email Support",
       value: "hardikjain2030@gmail.com",
       actionText: "Send an Email",
-      href: "mailto:hardikjain2030@gmail.com?subject=PropDesk%20Demo%20Inquiry",
+      href: "mailto:hardikjain2030@gmail.com?subject=PropDesk%20Free-trail%20Singup",
       sub: "Response within 2 hours",
       colorClass: "text-emerald-600",
       bgClass: "bg-emerald-50 border-emerald-100",

@@ -10,6 +10,7 @@ function SignupFormInner() {
   const searchParams = useSearchParams();
   const [email, setEmail] = useState("");
   const [companyName, setCompanyName] = useState("");
+  const [phone, setPhone] = useState("");
   const [affiliateCode, setAffiliateCode] = useState(searchParams?.get("ref") || "");
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -37,7 +38,7 @@ function SignupFormInner() {
       const res = await fetch("/api/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, companyName, affiliateCode }),
+        body: JSON.stringify({ email, companyName, phone, affiliateCode }),
       });
 
       const data = await res.json();
@@ -155,6 +156,21 @@ function SignupFormInner() {
             onChange={(e) => setCompanyName(e.target.value)}
             className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all text-slate-900 font-medium"
             placeholder="e.g. Acme Properties"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="phone" className="block text-sm font-semibold text-slate-700 mb-2">
+            Phone Number
+          </label>
+          <input
+            id="phone"
+            type="tel"
+            required
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all text-slate-900 font-medium"
+            placeholder="e.g. +91 9876543210"
           />
         </div>
 
