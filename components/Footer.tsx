@@ -191,6 +191,7 @@ export default function Footer() {
           {/* Right Side: Links & Credits */}
           <div className="flex flex-wrap justify-center xl:justify-end items-center gap-x-6 gap-y-4">
             <div className="flex flex-wrap justify-center items-center gap-x-4 sm:gap-6">
+              <Link href="/about-us" className="hover:text-emerald-400 transition-colors whitespace-nowrap">About Us</Link>
               <Link href="/privacy" className="hover:text-emerald-400 transition-colors whitespace-nowrap">Privacy Policy</Link>
               <Link href="/terms" className="hover:text-emerald-400 transition-colors whitespace-nowrap">Terms of Service</Link>
               <Link href="/disclaimer" className="hover:text-emerald-400 transition-colors whitespace-nowrap">RERA Disclaimer</Link>
