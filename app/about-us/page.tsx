@@ -28,7 +28,7 @@ export default function AboutUs() {
       slug: "naman-sharma",
       role: "Video Editor & Director",
       desc: "Visual storytelling and crisp editing.",
-      image: "/naman.jpg"
+      image: "/naman.jpeg"
     }
   ];
 
@@ -50,7 +50,7 @@ export default function AboutUs() {
             PropDesk is engineered to scale modern agents, brokers, and high-growth agencies. We believe in providing world-class tools to empower the emerging force of New India's real estate sector.
           </p>
         </div>
-        
+
         {/* Our Story & Founders Section */}
         <div className="mb-24 mt-8 max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 relative z-20">
           <div className="text-center mb-12">
@@ -83,22 +83,22 @@ export default function AboutUs() {
         {/* Interns Section */}
         <div className="mt-24 pt-16 border-t border-slate-200/60">
           <div className="text-center mb-12">
-             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm font-bold tracking-wide uppercase mb-6 shadow-sm">
-                <Sparkles className="w-4 h-4" />
-                21 Days Internship Program
-             </div>
-             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                The Brilliant Minds Behind PropDesk
-             </h2>
-             <p className="text-slate-500 max-w-2xl mx-auto text-lg">
-                We are incredibly proud of the talented interns who contributed significantly to this project during their rigorous 21-day internship.
-             </p>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm font-bold tracking-wide uppercase mb-6 shadow-sm">
+              <Sparkles className="w-4 h-4" />
+              21 Days Internship Program
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              The Brilliant Minds Behind PropDesk
+            </h2>
+            <p className="text-slate-500 max-w-2xl mx-auto text-lg">
+              We are incredibly proud of the talented interns who contributed significantly to this project during their rigorous 21-day internship.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {interns.map((intern) => (
-              <Link 
-                href={`/internship/${intern.slug}`} 
+              <Link
+                href={`/internship/${intern.slug}`}
                 key={intern.slug}
                 className="group relative bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/40 border border-slate-100 hover:border-emerald-200 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-emerald-200/50 flex flex-col items-center text-center overflow-hidden"
               >
