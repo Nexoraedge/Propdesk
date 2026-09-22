@@ -11,12 +11,13 @@ function CheckoutPageInner() {
   const router = useRouter();
 
   const agencyId = searchParams.get("agencyId");
-  const plan = searchParams.get("plan") || "starter";
+  const defaultPlan = searchParams.get("plan") === "agency" ? "agency" : "starter";
 
   // State
   const [loading, setLoading] = useState(true);
   const [processing, setProcessing] = useState(false);
   const [agencyData, setAgencyData] = useState<any>(null);
+  const [plan, setPlan] = useState<"starter" | "agency">(defaultPlan);
   const [seats, setSeats] = useState(1);
   const [cycle, setCycle] = useState<"monthly" | "6months">("monthly");
   const [coupon, setCoupon] = useState("");
@@ -38,8 +39,6 @@ function CheckoutPageInner() {
       .then(data => {
         if (data.agency) {
           setAgencyData(data.agency);
-          const minSeats = plan === "agency" ? 4 : 1;
-          setSeats(Math.max(minSeats, data.agency.max_users || minSeats));
         }
         setLoading(false);
       })
@@ -48,6 +47,13 @@ function CheckoutPageInner() {
         setLoading(false);
       });
   }, [agencyId]);
+
+  useEffect(() => {
+    if (agencyData) {
+      const minSeats = plan === "agency" ? 4 : 1;
+      setSeats(prev => Math.max(minSeats, prev, agencyData.max_users || 1));
+    }
+  }, [plan, agencyData]);
 
   const handleApplyCoupon = async () => {
     if (!coupon) return;
@@ -181,6 +187,25 @@ function CheckoutPageInner() {
 
           {/* Left Column - Configuration */}
           <div className="lg:col-span-7 space-y-6">
+
+            {/* Plan Selection Toggle */}
+            <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-200">
+              <h3 className="text-lg font-bold text-slate-900 mb-4">Plan Type</h3>
+              <div className="grid grid-cols-2 gap-3 p-1 bg-slate-100 rounded-2xl">
+                <button
+                  onClick={() => setPlan("starter")}
+                  className={`py-3 rounded-xl font-bold text-sm transition-all ${plan === "starter" ? "bg-white text-slate-900 shadow-sm ring-1 ring-slate-200" : "text-slate-500 hover:text-slate-700"}`}
+                >
+                  Starter Plan
+                </button>
+                <button
+                  onClick={() => setPlan("agency")}
+                  className={`relative py-3 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 ${plan === "agency" ? "bg-white text-emerald-700 shadow-sm ring-1 ring-emerald-200" : "text-slate-500 hover:text-slate-700"}`}
+                >
+                  <Building2 className="w-4 h-4" /> Agency Plan
+                </button>
+              </div>
+            </div>
 
             {/* Cycle Toggle */}
             <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-200">
