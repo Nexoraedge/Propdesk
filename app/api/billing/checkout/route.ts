@@ -9,6 +9,7 @@ export async function POST(request: Request) {
     const agencyId = formData.get('agencyId') as string;
     const seats = parseInt(formData.get('seats') as string || '1', 10);
     const cycle = formData.get('cycle') as string || 'monthly';
+    const plan = formData.get('plan') as string || 'starter';
     const couponCode = formData.get('couponCode') as string || '';
     const calculatedAmount = parseInt(formData.get('calculatedAmount') as string || '0', 10);
 
@@ -23,7 +24,7 @@ export async function POST(request: Request) {
 
     // Generate unique merchant order ID
     const merchantOrderId = `PD-${Date.now()}-${crypto.randomBytes(4).toString('hex').toUpperCase()}`;
-    const planName = `${cycle}_${seats}seats`;
+    const planName = `${plan}_${cycle}_${seats}seats`;
 
     // Log pending transaction to Supabase
     const { error: dbError } = await supabaseAdmin

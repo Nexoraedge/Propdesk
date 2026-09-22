@@ -11,6 +11,7 @@ function CheckoutPageInner() {
   const router = useRouter();
 
   const agencyId = searchParams.get("agencyId");
+  const plan = searchParams.get("plan") || "starter";
 
   // State
   const [loading, setLoading] = useState(true);
@@ -37,7 +38,8 @@ function CheckoutPageInner() {
       .then(data => {
         if (data.agency) {
           setAgencyData(data.agency);
-          setSeats(Math.max(1, data.agency.max_users || 1));
+          const minSeats = plan === "agency" ? 4 : 1;
+          setSeats(Math.max(minSeats, data.agency.max_users || minSeats));
         }
         setLoading(false);
       })
@@ -66,7 +68,16 @@ function CheckoutPageInner() {
 
   // Pricing calculations
   const calculateTotal = () => {
-    let basePrice = cycle === "monthly" ? SEAT_PRICE_MONTHLY : SEAT_PRICE_6MONTHS;
+    let total = 0;
+    if (plan === "agency") {
+      const basePrice = cycle === "monthly" ? 1499 : Math.round(1499 * 6 * 0.8);
+      const extraSeatPrice = cycle === "monthly" ? 400 : Math.round(400 * 6 * 0.8);
+      const extraSeats = Math.max(0, seats - 4);
+      total = basePrice + (extraSeats * extraSeatPrice);
+    } else {
+      let basePrice = cycle === "monthly" ? SEAT_PRICE_MONTHLY : SEAT_PRICE_6MONTHS;
+      total = basePrice * seats;
+    }
 
     let proratedMultiplier = 1;
     if (agencyData && agencyData.subscription_status === 'active' && agencyData.subscription_end_date) {
@@ -80,7 +91,7 @@ function CheckoutPageInner() {
       }
     }
 
-    let total = (basePrice * seats) * proratedMultiplier;
+    total = total * proratedMultiplier;
 
     if (discountInfo) {
       if (discountInfo.type === "percentage") {
@@ -104,6 +115,7 @@ function CheckoutPageInner() {
     try {
       const formData = new FormData();
       formData.append("agencyId", agencyId || "");
+      formData.append("plan", plan);
       formData.append("seats", seats.toString());
       formData.append("cycle", cycle);
       if (coupon) formData.append("couponCode", coupon);
@@ -194,7 +206,11 @@ function CheckoutPageInner() {
               <div className="flex justify-between items-start mb-6">
                 <div>
                   <h3 className="text-lg font-bold text-slate-900">Team Seats</h3>
-                  <p className="text-sm text-slate-500 font-medium mt-1">₹{cycle === 'monthly' ? SEAT_PRICE_MONTHLY : SEAT_PRICE_6MONTHS} per seat / {cycle === 'monthly' ? 'mo' : '6 mo'}</p>
+                  {plan === "agency" ? (
+                    <p className="text-sm text-slate-500 font-medium mt-1">₹{cycle === 'monthly' ? 1499 : Math.round(1499*6*0.8)} base (4 seats) + ₹{cycle === 'monthly' ? 400 : Math.round(400*6*0.8)} per extra seat</p>
+                  ) : (
+                    <p className="text-sm text-slate-500 font-medium mt-1">₹{cycle === 'monthly' ? SEAT_PRICE_MONTHLY : SEAT_PRICE_6MONTHS} per seat / {cycle === 'monthly' ? 'mo' : '6 mo'}</p>
+                  )}
                 </div>
                 <div className="bg-slate-100 text-slate-700 font-bold px-3 py-1 rounded-lg text-sm border border-slate-200">
                   {seats} Seats Selected
@@ -203,7 +219,7 @@ function CheckoutPageInner() {
 
               <div className="flex items-center gap-4">
                 <button
-                  onClick={() => setSeats(Math.max(1, seats - 1))}
+                  onClick={() => setSeats(Math.max(plan === "agency" ? 4 : 1, seats - 1))}
                   className="w-14 h-14 rounded-2xl flex items-center justify-center bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors"
                 >
                   <Minus className="w-6 h-6" />
@@ -284,10 +300,25 @@ function CheckoutPageInner() {
               </h3>
 
               <div className="space-y-4 mb-6">
-                <div className="flex justify-between items-center text-slate-300 font-medium">
-                  <span>{seats} Seats ({cycle === 'monthly' ? 'Monthly' : '6 Months'})</span>
-                  <span>₹{cycle === 'monthly' ? SEAT_PRICE_MONTHLY * seats : SEAT_PRICE_6MONTHS * seats}</span>
-                </div>
+                {plan === "agency" ? (
+                  <>
+                    <div className="flex justify-between items-center text-slate-300 font-medium">
+                      <span>Agency Plan Base (4 Seats)</span>
+                      <span>₹{cycle === 'monthly' ? 1499 : Math.round(1499 * 6 * 0.8)}</span>
+                    </div>
+                    {seats > 4 && (
+                      <div className="flex justify-between items-center text-slate-300 font-medium">
+                        <span>{seats - 4} Extra Seats</span>
+                        <span>₹{cycle === 'monthly' ? (seats - 4) * 400 : Math.round(400 * 6 * 0.8) * (seats - 4)}</span>
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <div className="flex justify-between items-center text-slate-300 font-medium">
+                    <span>{seats} Seats ({cycle === 'monthly' ? 'Monthly' : '6 Months'})</span>
+                    <span>₹{cycle === 'monthly' ? SEAT_PRICE_MONTHLY * seats : SEAT_PRICE_6MONTHS * seats}</span>
+                  </div>
+                )}
 
                 {agencyData && agencyData.subscription_status === 'active' && seats > agencyData.max_users && (
                   <div className="flex justify-between items-center text-emerald-400 font-medium text-sm bg-emerald-400/10 p-3 rounded-xl">
