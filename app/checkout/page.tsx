@@ -85,20 +85,6 @@ function CheckoutPageInner() {
       total = basePrice * seats;
     }
 
-    let proratedMultiplier = 1;
-    if (agencyData && agencyData.subscription_status === 'active' && agencyData.subscription_end_date) {
-      const endDate = new Date(agencyData.subscription_end_date);
-      const now = new Date();
-      const daysLeft = Math.max(0, Math.ceil((endDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)));
-
-      if (seats > agencyData.max_users && daysLeft > 0 && daysLeft < (cycle === 'monthly' ? 30 : 180)) {
-        const cycleDays = cycle === 'monthly' ? 30 : 180;
-        proratedMultiplier = daysLeft / cycleDays;
-      }
-    }
-
-    total = total * proratedMultiplier;
-
     if (discountInfo) {
       if (discountInfo.type === "percentage") {
         total = total - (total * (discountInfo.value / 100));
@@ -342,13 +328,6 @@ function CheckoutPageInner() {
                   <div className="flex justify-between items-center text-slate-300 font-medium">
                     <span>{seats} Seats ({cycle === 'monthly' ? 'Monthly' : '6 Months'})</span>
                     <span>₹{cycle === 'monthly' ? SEAT_PRICE_MONTHLY * seats : SEAT_PRICE_6MONTHS * seats}</span>
-                  </div>
-                )}
-
-                {agencyData && agencyData.subscription_status === 'active' && seats > agencyData.max_users && (
-                  <div className="flex justify-between items-center text-emerald-400 font-medium text-sm bg-emerald-400/10 p-3 rounded-xl">
-                    <span>Prorated (Mid-cycle upgrade)</span>
-                    <span>Applied</span>
                   </div>
                 )}
 
