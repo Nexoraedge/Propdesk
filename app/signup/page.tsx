@@ -133,6 +133,16 @@ function SignupFormInner() {
   return (
     <>
       <div className="mb-8 text-center">
+        {searchParams?.get("plan") && (
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/15 via-rose-500/15 to-amber-500/15 text-amber-900 border border-amber-400/50 px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
+            <span>🪔</span>
+            <span>
+              {searchParams.get("plan") === "agency"
+                ? "Diwali Deal Locked: Agency Plan at ₹1,499/mo (50% OFF)"
+                : "Diwali Deal Locked: Starter Plan at ₹499/mo (50% OFF)"}
+            </span>
+          </div>
+        )}
         <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight mb-3">Start your 14-day free trial</h1>
         <p className="text-slate-500 text-lg">No credit card required. Setup takes 30 seconds.</p>
       </div>

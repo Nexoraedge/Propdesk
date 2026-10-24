@@ -198,7 +198,7 @@ export default function Home() {
   const plans = [
     {
       name: "Starter",
-      badge: "Solo Brokers",
+      badge: "Solo Brokers • 50% Diwali Off",
       originalMonthlyPrice: 999,
       monthlyPrice: 499,
       originalAnnualPrice: 999,
@@ -219,10 +219,10 @@ export default function Home() {
     },
     {
       name: "Professional",
-      badge: "Growing Agencies",
-      originalMonthlyPrice: 1999,
+      badge: "Growing Agencies • 50% Diwali Off",
+      originalMonthlyPrice: 2999,
       monthlyPrice: 1499,
-      originalAnnualPrice: 1999,
+      originalAnnualPrice: 2999,
       annualPrice: 1199,
       customPricing: false,
       description: "Perfect for small teams managing multiple agents and clients.",

@@ -4,12 +4,16 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
+import DiwaliTopBar from "./DiwaliTopBar";
+import DiwaliModal from "./DiwaliModal";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showTopBar, setShowTopBar] = useState(true);
+  const [isDiwaliModalOpen, setIsDiwaliModalOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -17,6 +21,31 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const isBannerDismissed = sessionStorage.getItem("propdesk_diwali_topbar_dismissed");
+      if (isBannerDismissed === "true") {
+        setShowTopBar(false);
+      }
+
+      const hasSeenModal = sessionStorage.getItem("propdesk_diwali_modal_viewed");
+      if (!hasSeenModal) {
+        const timer = setTimeout(() => {
+          setIsDiwaliModalOpen(true);
+          sessionStorage.setItem("propdesk_diwali_modal_viewed", "true");
+        }, 900);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, []);
+
+  const handleCloseTopBar = () => {
+    setShowTopBar(false);
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem("propdesk_diwali_topbar_dismissed", "true");
+    }
+  };
 
   const navLinks = [
     { name: "Features", href: "/features" },
@@ -27,17 +56,27 @@ export default function Navbar() {
 
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-          ? "bg-white/95 backdrop-blur-xl border-b border-slate-100/80 shadow-sm shadow-slate-100/50 py-3"
-          : "bg-transparent py-5"
-          }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-11">
+      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <AnimatePresence>
+          {showTopBar && (
+            <DiwaliTopBar
+              onOpenModal={() => setIsDiwaliModalOpen(true)}
+              onClose={handleCloseTopBar}
+            />
+          )}
+        </AnimatePresence>
 
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 group shrink-0">
+        <nav
+          className={`transition-all duration-300 ${scrolled
+            ? "bg-white/95 backdrop-blur-xl border-b border-slate-100/80 shadow-sm shadow-slate-100/50 py-3"
+            : "bg-transparent py-4 sm:py-5"
+            }`}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-11">
+
+              {/* Logo */}
+              <Link href="/" className="flex items-center gap-2.5 group shrink-0">
               <div className="relative w-8 h-8 rounded-xl bg-linear-to-br from-emerald-500 to-emerald-600  shadow-lg shadow-emerald-200 group-hover:shadow-emerald-300 transition-all duration-300">
                 <div className="w-full h-full rounded-[10px] bg-white flex items-center justify-center">
                   <Image
@@ -113,8 +152,36 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
+    </header>
 
-      {/* Mobile overlay */}
+    {/* Diwali Offer Modal */}
+    <DiwaliModal
+      isOpen={isDiwaliModalOpen}
+      onClose={() => setIsDiwaliModalOpen(false)}
+    />
+
+    {/* Floating Diwali Festive Trigger Button (Allows user to reopen anytime) */}
+    {!isDiwaliModalOpen && (
+      <motion.button
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0, opacity: 0 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={() => setIsDiwaliModalOpen(true)}
+        className="fixed bottom-5 right-5 z-40 bg-gradient-to-r from-amber-500 via-rose-600 to-amber-600 text-white font-extrabold px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full shadow-2xl shadow-amber-950/40 border border-amber-300/50 flex items-center gap-2 text-xs sm:text-sm cursor-pointer group hover:shadow-amber-500/30 transition-all"
+        aria-label="View Diwali 50% discount offer"
+      >
+        <span className="text-base select-none animate-bounce">🪔</span>
+        <span className="tracking-tight hidden sm:inline">Diwali Offer: <strong>50% OFF</strong></span>
+        <span className="tracking-tight sm:hidden"><strong>50% OFF</strong></span>
+        <span className="bg-amber-300/30 text-yellow-200 text-[10px] px-1.5 py-0.5 rounded-full uppercase font-black">
+          From ₹499
+        </span>
+      </motion.button>
+    )}
+
+    {/* Mobile overlay */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-40 md:hidden"

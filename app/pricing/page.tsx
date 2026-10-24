@@ -19,7 +19,7 @@ type BillingPeriod = "monthly" | "annual";
 const plans = [
   {
     name: "Starter",
-    badge: "Solo Brokers",
+    badge: "Solo Brokers • 50% Diwali Off",
     originalMonthlyPrice: 999,
     monthlyPrice: 499,
     originalAnnualPrice: 999,
@@ -41,13 +41,13 @@ const plans = [
   },
   {
     name: "Professional",
-    badge: "Growing Agencies",
-    originalMonthlyPrice: 1999,
+    badge: "Growing Agencies • 50% Diwali Off",
+    originalMonthlyPrice: 2999,
     monthlyPrice: 1499,
-    originalAnnualPrice: 1999,
+    originalAnnualPrice: 2999,
     annualPrice: 1199,
     customPricing: false,
-    description: "Perfect for small teams managing multiple agents and clients.",
+    description: "Perfect for teams managing multiple agents, listings, and clients.",
     features: [
       "PropDesk Copilot AI",
       "4 Agent Accounts included",
@@ -131,8 +131,10 @@ export default function PricingPage() {
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.div variants={stagger} initial="hidden" animate="show" className="space-y-6">
-            <motion.div variants={fadeUp} className="flex justify-center">
-              <span className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-600 border border-emerald-100 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest shadow-sm"><Zap className="w-3.5 h-3.5" />Simple, Transparent Pricing</span>
+            <motion.div variants={fadeUp} className="flex flex-wrap items-center justify-center gap-2">
+              <span className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/15 via-rose-500/15 to-amber-500/15 text-amber-900 border border-amber-400/50 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider shadow-xs">
+                <span>🪔</span> Shubh Diwali Mega Sale: Flat 50% OFF Applied!
+              </span>
             </motion.div>
             {agencyId ? (
               <>
