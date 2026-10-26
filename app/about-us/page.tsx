@@ -9,13 +9,7 @@ export const metadata = {
 
 export default function AboutUs() {
   const interns = [
-    {
-      name: "Hardik Jain",
-      slug: "hardik-jain",
-      role: "Lead Developer",
-      desc: "Job done. Core architect and problem solver.",
-      image: "/hardik.jpg"
-    },
+
     {
       name: "Suraj Shah",
       slug: "suraj-shah",

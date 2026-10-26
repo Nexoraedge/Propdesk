@@ -12,15 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 const internsData = {
-  "hardik-jain": {
-    name: "Hardik Jain",
-    role: "Lead Developer",
-    duration: "21 Days Internship",
-    status: "Job Done",
-    image: "/hardik.jpg",
-    bio: "Hardik Jain is a phenomenal developer who architected core systems for PropDesk. During this 21-day internship, Hardik successfully executed complex requirements and delivered exceptional results ahead of schedule.",
-    highlights: ["Architected the Next.js App Router structure", "Implemented seamless animations and transitions", "Delivered pixel-perfect UI components"]
-  },
+
   "suraj-shah": {
     name: "Suraj Shah",
     role: "Digital Marketing Intern",
@@ -63,12 +55,12 @@ export default async function InternshipPage({ params }: { params: Promise<{ slu
 
         <div className="bg-white/90 backdrop-blur-xl border border-slate-200 p-8 sm:p-12 rounded-3xl shadow-xl shadow-slate-200/50 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-400/10 rounded-full blur-[80px] pointer-events-none" />
-          
+
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-8 mb-10 relative z-10">
             <div>
               <h1 className="text-4xl sm:text-5xl font-black text-slate-900 mb-3 tracking-tight font-display">{intern.name}</h1>
               <div className="text-xl text-emerald-600 font-semibold mb-6">{intern.role}</div>
-              
+
               <div className="flex flex-wrap items-center gap-3">
                 <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-slate-100 text-slate-600 text-sm font-medium border border-slate-200 shadow-sm">
                   <Calendar className="w-4 h-4 text-emerald-600" />
@@ -80,7 +72,7 @@ export default async function InternshipPage({ params }: { params: Promise<{ slu
                 </div>
               </div>
             </div>
-            
+
             <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl overflow-hidden shadow-xl shadow-emerald-500/20 flex-shrink-0 rotate-3 hover:rotate-0 transition-transform duration-300 relative border border-slate-100">
               <img src={intern.image} alt={intern.name} className="w-full h-full object-cover" />
             </div>
@@ -108,7 +100,7 @@ export default async function InternshipPage({ params }: { params: Promise<{ slu
               </ul>
             </div>
           </div>
-          
+
           <div className="mt-12 pt-8 border-t border-slate-100 text-center relative z-10">
             <p className="text-slate-400 text-sm font-medium tracking-wide">PropDesk Internship Program 2026</p>
           </div>
